@@ -10,6 +10,7 @@ namespace Eng_OpenTK
     {
         static void Main(string[] args)
         {
+            //bardzo tajny comment
         }
     }
 }

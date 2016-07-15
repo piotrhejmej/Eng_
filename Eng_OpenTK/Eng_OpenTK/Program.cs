@@ -17,7 +17,7 @@ namespace Eng_OpenTK
         private static VBO<Vector3> cube;
         private static VBO<Vector3> cubeColor;
         private static VBO<int> cubeElements;
-        private static int count = 3375;
+        private static int count = 85184;
         private static float angle = 0;
         private static float time = 0, baseTime = 0, frame = 0;
         private static Stopwatch watch;

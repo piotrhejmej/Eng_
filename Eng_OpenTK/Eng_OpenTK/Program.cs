@@ -80,8 +80,7 @@ namespace Eng_OpenTK
             Glut.glutDisplayFunc(OnDisplay);
             Glut.glutCloseFunc(OnClose);
 
-
-
+            
             Gl.Enable(EnableCap.DepthTest);
 
 

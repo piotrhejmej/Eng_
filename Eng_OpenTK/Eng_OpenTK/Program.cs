@@ -197,6 +197,7 @@ namespace Eng_OpenTK
             frame++;
 
 
+
             if (time > 1000)
             {
                 Console.WriteLine("FPS: {0}     time:{1}        freq:{2}    elap:{3}", frame, time, Stopwatch.Frequency, watch.ElapsedMilliseconds);

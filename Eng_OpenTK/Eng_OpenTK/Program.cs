@@ -65,7 +65,7 @@ namespace Eng_OpenTK
                             new Vector3(cR, cG, cB), new Vector3(cR, cG, cB), new Vector3(cR, cG, cB), new Vector3(cR, cG, cB),
                             new Vector3(cR, cG, cB), new Vector3(cR, cG, cB), new Vector3(cR, cG, cB), new Vector3(cR, cG, cB)
                         });
-                    }
+                        }
             }
         }
 
@@ -171,9 +171,9 @@ namespace Eng_OpenTK
             angle += 0.005f;
 
             //cube
-            program["model_matrix"].SetValue(Matrix4.CreateRotationZ(angle/2) * Matrix4.CreateRotationX(angle) * Matrix4.CreateTranslation(new Vector3(-15f, -5f, -100f)));
-            
-            
+            program["model_matrix"].SetValue(Matrix4.CreateRotationX(-angle) * Matrix4.CreateRotationZ(angle) * Matrix4.CreateRotationY(-angle) * Matrix4.CreateTranslation(new Vector3(-15f, -5f, -100f)));
+
+
             try
             {
                 double partialCount = Math.Pow(count, (1.0f / 3.0f));
@@ -190,8 +190,23 @@ namespace Eng_OpenTK
             }
             catch (NullReferenceException ex)
             {
-                //Console.WriteLine("Something went wrong");
-                
+                Console.WriteLine("Something went wrong");
+
+            }
+
+            frame++;
+
+
+            if (time > 1000)
+            {
+                Console.WriteLine("FPS: {0}     time:{1}        freq:{2}    elap:{3}", frame, time, Stopwatch.Frequency, watch.ElapsedMilliseconds);
+                string title = "FPS: " + frame;
+                Glut.glutSetWindowTitle(title);
+                time = 0;
+                frame = 0;
+
+
+
             }
 
            

@@ -193,9 +193,9 @@ namespace Eng_OpenTK
                 //Console.WriteLine("Something went wrong");
                 
             }
-                       
 
-
+           
+            //merge requesto
 
             Glut.glutSwapBuffers();
         }
@@ -212,6 +212,7 @@ namespace Eng_OpenTK
                                                 color = vertexColor;
                                                 gl_Position = projection_matrix * view_matrix * model_matrix * vec4(vertexPosition, 1);
                                             }
+
                                             ";
         public static string FragmentShader = @"
                                             in vec3 color;

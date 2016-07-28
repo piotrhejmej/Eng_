@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using OpenGL;
 using Tao.FreeGlut;
 using System.Diagnostics;
-
+using System.Threading;
 
 namespace Eng_OpenTK
 {
@@ -47,22 +47,33 @@ namespace Eng_OpenTK
             
            
 
-            double partialCount = Math.Pow(count, (1.0f / 3.0f));
+            double partialCount2 = Math.Pow(count, (1.0f / 3.0f));
+            int partialCount = (int)partialCount2;
+
+            watch = Stopwatch.StartNew();
+
             for (int x = 0; x < (int)partialCount; x++)
-                for (int y = 0; y < (int)partialCount; y++)
-                    for (int z = 0; z < (int)partialCount; z++)
-                    {
-                        assembly.buildCube(x,y,z,1, count, ref cubesy);
-                    }
-            
+                  for (int y = 0; y < (int)partialCount; y++)
+                      for (int z = 0; z < (int)partialCount; z++)
+                      {
+                          assembly.buildCube(x, y, z, 1, count, ref cubesy);
+                      }
 
+            watch.Stop();
+            time += watch.ElapsedMilliseconds;
+            watch.Reset();
+            watch.Start();
 
+            Console.WriteLine("Czas budowania: {0}",time/1000);
+            int st = 100;
+
+           
 
             cubeElements = new VBO<int>(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 }, BufferTarget.ElementArrayBuffer);
 
 
 
-            watch = Stopwatch.StartNew();
+            
 
                       
 

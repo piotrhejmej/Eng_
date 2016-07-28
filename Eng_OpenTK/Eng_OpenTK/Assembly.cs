@@ -21,8 +21,8 @@ namespace Eng_OpenTK
 
 
             cR = rand.NextDouble();
-            cG = rand.NextDouble() * x * 0.1f;
-            cB = rand.NextDouble();
+            cG = rand.NextDouble();
+            cB =  rand.NextDouble();
             cube.cube = new VBO<Vector3>(new Vector3[] {
                             new Vector3(x, y, z), new Vector3(x, y + length, z), new Vector3(x + length, y + length, z), new Vector3(x + length, y, z),
                             new Vector3(x, y, z + length), new Vector3(x, y + length, z + length), new Vector3(x + length, y + length, z + length), new Vector3(x + length, y, z + length),

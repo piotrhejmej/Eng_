@@ -22,18 +22,21 @@ namespace Eng_OpenTK
                 partialCount = Math.Pow(partialCount, 3);
 
                 for (int i = 0; i < (int)partialCount; i++)
-                {
-                    Gl.BindBufferToShaderAttribute(cubesy[i].cube, program, "vertexPosition");
-                    Gl.BindBufferToShaderAttribute(cubesy[i].cubeColor, program, "vertexColor");
-                    Gl.BindBuffer(cubeElements);
+                  {
+                      Gl.BindBufferToShaderAttribute(cubesy[i].cube, program, "vertexPosition");
+                      Gl.BindBufferToShaderAttribute(cubesy[i].cubeColor, program, "vertexColor");
+                      Gl.BindBuffer(cubeElements);
+
+                      Gl.DrawElements(BeginMode.Quads, cubeElements.Count, DrawElementsType.UnsignedInt, IntPtr.Zero);
 
 
-                    Gl.DrawElements(BeginMode.Quads, cubeElements.Count, DrawElementsType.UnsignedInt, IntPtr.Zero);
 
+                  }
+            
+           
+                
 
-                }
             }
-
             catch (NullReferenceException ex)
             {
                 Console.WriteLine("Something went wrong");

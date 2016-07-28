@@ -12,7 +12,7 @@ namespace Eng_OpenTK
 {
     class Program
     {
-        private static int width = 800, height = 600;
+        private static int width = 1280, height = 720;
         private static ShaderProgram program;
         private static VBO<Vector3> cube;
         private static VBO<Vector3> cubeColor;
@@ -22,33 +22,28 @@ namespace Eng_OpenTK
         private static float time = 0, baseTime = 0, frame = 0;
         private static Stopwatch watch;
 
-        public class forcube
+        public class for2cube
         {
-            public static VBO<Vector3>[] cube;
-            public static int[] x = new int[10];
-            public static VBO<Vector3>[] cubeColor;
-            public forcube(int count)
-            {
-                cube = new VBO<Vector3>[count];
-                cubeColor = new VBO<Vector3>[count];
-            }
+            public VBO<Vector3> cube;
+            public int state;
+            public VBO<Vector3> cubeColor;
+        }
 
-            public void calculateMatrix(int length, int count)
-            {
-                double cR = 0, cB = 0, cG = 0;
-                Random rand = new Random();
-                double partialCount = Math.Pow(count, (1.0f / 3.0f));
 
-                Console.WriteLine("partialCount = {0}\n (int)partialCount = {1}", partialCount, (int)partialCount);
-                for (int x = 0; x < (int)partialCount; x++)
-                    for (int y = 0; y < (int)partialCount; y++)
-                        for (int z = 0; z < (int)partialCount; z++)
-                        {
-                            //Console.WriteLine("x = {0}, y = {1}, z = {2}", x, y, z);
-                            cR = rand.NextDouble();
-                            cG = rand.NextDouble();
-                            cB = rand.NextDouble();
-                            cube[x * (int)partialCount * (int)partialCount + y * (int)partialCount + z] = new VBO<Vector3>(new Vector3[] {
+
+        public static void calculateMatrix(int x, int y, int z, int length, int count, ref List<for2cube> tempList)
+        {
+            for2cube cube = new for2cube();
+
+            double cR = 0, cB = 0, cG = 0;
+            Random rand = new Random();
+            double partialCount = Math.Pow(count, (1.0f / 3.0f));
+
+            
+                        cR = rand.NextDouble();
+                        cG = rand.NextDouble()*x*0.1f;
+                        cB = rand.NextDouble();
+                        cube.cube = new VBO<Vector3>(new Vector3[] {
                             new Vector3(x, y, z), new Vector3(x, y + length, z), new Vector3(x + length, y + length, z), new Vector3(x + length, y, z),
                             new Vector3(x, y, z + length), new Vector3(x, y + length, z + length), new Vector3(x + length, y + length, z + length), new Vector3(x + length, y, z + length),
                             new Vector3(x, y, z), new Vector3(x, y, z + length), new Vector3(x + length, y, z + length), new Vector3(x + length, y, z),
@@ -57,7 +52,7 @@ namespace Eng_OpenTK
                             new Vector3(x, y, z), new Vector3(x, y + length, z), new Vector3(x, y + length, z + length), new Vector3(x, y, z + length)
                         });
 
-                            cubeColor[x * (int)partialCount * (int)partialCount + y * (int)partialCount + z] = new VBO<Vector3>(new Vector3[] {
+                        cube.cubeColor = new VBO<Vector3>(new Vector3[] {
                             new Vector3(cR, cG, cB), new Vector3(cR, cG, cB), new Vector3(cR, cG, cB), new Vector3(cR, cG, cB),
                             new Vector3(cR, cG, cB), new Vector3(cR, cG, cB), new Vector3(cR, cG, cB), new Vector3(cR, cG, cB),
                             new Vector3(cR, cG, cB), new Vector3(cR, cG, cB), new Vector3(cR, cG, cB), new Vector3(cR, cG, cB),
@@ -65,9 +60,12 @@ namespace Eng_OpenTK
                             new Vector3(cR, cG, cB), new Vector3(cR, cG, cB), new Vector3(cR, cG, cB), new Vector3(cR, cG, cB),
                             new Vector3(cR, cG, cB), new Vector3(cR, cG, cB), new Vector3(cR, cG, cB), new Vector3(cR, cG, cB)
                         });
-                        }
-            }
+                    
+
+            tempList.Add(cube);
         }
+        private static List<for2cube> cubesy = new List<for2cube>();
+
 
         static void Main(string[] args)
         {
@@ -82,51 +80,35 @@ namespace Eng_OpenTK
 
             
             Gl.Enable(EnableCap.DepthTest);
-
+            
 
             program = new ShaderProgram(VertexShader, FragmentShader);
 
             program.Use();
             program["projection_matrix"].SetValue(Matrix4.CreatePerspectiveFieldOfView(0.45f, (float)width / height, 0.1f, 1000f));
-            program["view_matrix"].SetValue(Matrix4.LookAt(new Vector3(0, 0, 100), Vector3.Zero, Vector3.Up));
+            program["view_matrix"].SetValue(Matrix4.LookAt(new Vector3(50, 50, 200), Vector3.Zero, Vector3.Up));
+            program["model_matrix"].SetValue(/*Matrix4.CreateRotationX(0.2f) * Matrix4.CreateRotationZ(-0.1f) * Matrix4.CreateRotationY(-0.2f) * */Matrix4.CreateTranslation(new Vector3(-45f, -25f, -0f)));
+            
+           
 
-            forcube cubes = new forcube(count);
-
-            Console.WriteLine(forcube.x[0]);
-
-            try
-            {
-                cubes.calculateMatrix(1, count);
+            double partialCount = Math.Pow(count, (1.0f / 3.0f));
+            for (int x = 0; x < (int)partialCount; x++)
+                for (int y = 0; y < (int)partialCount; y++)
+                    for (int z = 0; z < (int)partialCount; z++)
+                    {
+                        calculateMatrix(x,y,z,1, count, ref cubesy);
             }
-            catch (NullReferenceException ex)
-            {
-                Console.WriteLine("Something went wrong");
-            }
+            
 
-
-
-            cube = new VBO<Vector3>(new Vector3[] {
-                new Vector3(0,0,1), new Vector3(0,1,1), new Vector3(1,1,1), new Vector3(1,0,1),
-                new Vector3(0,0,0), new Vector3(0,1,0), new Vector3(1,1,0), new Vector3(1,0,0),
-                new Vector3(0,0,1), new Vector3(0,0,0), new Vector3(1,0,0), new Vector3(1,0,1),
-                new Vector3(0,1,1), new Vector3(0,1,0), new Vector3(1,1,0), new Vector3(1,1,1),
-                new Vector3(1,0,1), new Vector3(1,1,1), new Vector3(1,1,0), new Vector3(1,0,0),
-                new Vector3(0,0,1), new Vector3(0,1,1), new Vector3(0,1,0), new Vector3(0,0,0)
-                });
 
 
             cubeElements = new VBO<int>(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 }, BufferTarget.ElementArrayBuffer);
 
-            cubeColor = new VBO<Vector3>(new Vector3[] {
-                new Vector3(1,0,0), new Vector3(1,0,0), new Vector3(1,0,0), new Vector3(1,0,0),
-                new Vector3(1,0,0), new Vector3(1,0,0), new Vector3(1,0,0), new Vector3(1,0,0),
-                new Vector3(0,0,1), new Vector3(0,0,1), new Vector3(0,0,1), new Vector3(0,0,1),
-                new Vector3(0,0,1), new Vector3(0,0,1), new Vector3(0,0,1), new Vector3(0,0,1),
-                new Vector3(0,1,0), new Vector3(0,1,0), new Vector3(0,1,0), new Vector3(0,1,0),
-                new Vector3(0,1,0), new Vector3(0,1,0), new Vector3(0,1,0), new Vector3(0,1,0)
-            });
+
 
             watch = Stopwatch.StartNew();
+
+                      
 
             Glut.glutMainLoop();
         }
@@ -154,14 +136,16 @@ namespace Eng_OpenTK
 
         private static void OnRenderFrame()
         {
-
+            
             watch.Stop();
             time += watch.ElapsedMilliseconds;
             watch.Reset();
             watch.Start();
             // Stopwatch.Frequency;
+            //public List<for2cube> cube = dupa;
 
-            Gl.Viewport(0, 0, width, height);
+            
+        Gl.Viewport(0, 0, width, height);
 
 
             Gl.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
@@ -171,27 +155,27 @@ namespace Eng_OpenTK
             angle += 0.005f;
 
             //cube
-            program["model_matrix"].SetValue(Matrix4.CreateRotationX(-angle) * Matrix4.CreateRotationZ(angle) * Matrix4.CreateRotationY(-angle) * Matrix4.CreateTranslation(new Vector3(-15f, -5f, -100f)));
-
-
+            
+            
             try
             {
                 double partialCount = Math.Pow(count, (1.0f / 3.0f));
                 partialCount = Math.Pow(partialCount, 3);
+                
                 for (int i = 0; i < (int)partialCount; i++)
                 {
-                    //Console.WriteLine(i);
-                    Gl.BindBufferToShaderAttribute(forcube.cube[i], program, "vertexPosition");
-                    Gl.BindBufferToShaderAttribute(forcube.cubeColor[i], program, "vertexColor");
-                    Gl.BindBuffer(cubeElements);
+                        //Console.WriteLine(i);
+                        Gl.BindBufferToShaderAttribute(cubesy[i].cube, program, "vertexPosition");
+                        Gl.BindBufferToShaderAttribute(cubesy[i].cubeColor, program, "vertexColor");
+                        Gl.BindBuffer(cubeElements);
 
-                    Gl.DrawElements(BeginMode.Quads, cubeElements.Count, DrawElementsType.UnsignedInt, IntPtr.Zero);
+                        Gl.DrawElements(BeginMode.Quads, cubeElements.Count, DrawElementsType.UnsignedInt, IntPtr.Zero);
+                
                 }
             }
             catch (NullReferenceException ex)
             {
                 Console.WriteLine("Something went wrong");
-
             }
 
             frame++;

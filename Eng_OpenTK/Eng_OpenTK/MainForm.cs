@@ -13,11 +13,15 @@ using OpenTK.Graphics.OpenGL;
 using OpenTK.Input;
 using System.Configuration;
 using System.Threading;
+using Eng_OpenTK.Rendering;
+
 
 namespace Eng_OpenTK
 {
     public partial class MainForm : Form
     {
+        Setup setup = new Setup();
+
         bool loaded = false;
         float x = 0, y = 0, z = -50;
 
@@ -87,30 +91,21 @@ namespace Eng_OpenTK
         private Vector3 cameraUp = Vector3.UnitY;
 
 
-        private void SetPerspectiveProjection(int width, int height, float FOV)
-        {
-            projectionMatrix = Matrix4.CreatePerspectiveFieldOfView((float)Math.PI * (FOV / 180f), width / (float)height, 0.2f, 1000f);
-            GL.MatrixMode(MatrixMode.Projection);
-            GL.LoadMatrix(ref projectionMatrix); // this replaces the old matrix, no need for GL.LoadIdentity()
-        }
-
-        private void SetLookAtCamera(Vector3 position, Vector3 target, Vector3 up)
-        {
-            modelViewMatrix = Matrix4.LookAt(Vector3.Zero, Vector3.UnitZ, Vector3.UnitY);
-            GL.MatrixMode(MatrixMode.Modelview);
-            GL.LoadMatrix(ref modelViewMatrix);
-
-        }
+        
 
         private void SetupViewport()
         {
+            
+
+
+
             int w = glControl1.Width;
             int h = glControl1.Height;
             GL.MatrixMode(MatrixMode.Projection);
-            SetPerspectiveProjection(w, h, 45);
+            projectionMatrix = setup.SetPerspectiveProjection(w, h, 45, projectionMatrix);
             cameraPosition = new Vector3(0, 0, -40);
             cameraTarget = new Vector3(100, 20, 0);
-            SetLookAtCamera(cameraPosition, cameraTarget, cameraUp);
+            modelViewMatrix = setup.SetLookAtCamera(cameraPosition, cameraTarget, cameraUp, modelViewMatrix);
 
         }
 
@@ -136,10 +131,10 @@ namespace Eng_OpenTK
             int w = glControl1.Width;
             int h = glControl1.Height;
 
-            SetPerspectiveProjection(w, h, 45); // 45 is in degrees
+            projectionMatrix = setup.SetPerspectiveProjection(w, h, 45, projectionMatrix); // 45 is in degrees
             cameraPosition = new Vector3(0, 0, -40);
             cameraTarget = new Vector3(100, 20, 0);
-            SetLookAtCamera(cameraPosition, cameraTarget, cameraUp);
+            modelViewMatrix = setup.SetLookAtCamera(cameraPosition, cameraTarget, cameraUp, modelViewMatrix);
 
         }
 

@@ -79,9 +79,7 @@ namespace Eng_OpenTK
             resize();
 
         }
-
-
-
+        
         private Matrix4 projectionMatrix;
         private Matrix4 modelViewMatrix, temp;
         private Vector3 cameraPosition;
@@ -246,11 +244,15 @@ namespace Eng_OpenTK
         private void onChangeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             continousToolStripMenuItem.Checked = false;
+            onChangeToolStripMenuItem.Enabled = false;
+            continousToolStripMenuItem.Enabled = true;
         }
 
         private void continousToolStripMenuItem_Click(object sender, EventArgs e)
         {
             onChangeToolStripMenuItem.Checked = false;
+            onChangeToolStripMenuItem.Enabled = true;
+            continousToolStripMenuItem.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)

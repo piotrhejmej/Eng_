@@ -63,7 +63,6 @@
             this.glControl1.Load += new System.EventHandler(this.glControl1_Load);
             this.glControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.glControl1_Paint);
             this.glControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.glControl1_KeyDown);
-            this.glControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.glControl1_MouseClick);
             this.glControl1.Resize += new System.EventHandler(this.glControl1_Resize);
             // 
             // button1
@@ -198,9 +197,9 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Location = new System.Drawing.Point(1085, 22);
+            this.panel1.Location = new System.Drawing.Point(1073, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(95, 337);
+            this.panel1.Size = new System.Drawing.Size(107, 592);
             this.panel1.TabIndex = 14;
             // 
             // menuStrip1
@@ -209,6 +208,7 @@
             this.aBCDToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStrip1.Size = new System.Drawing.Size(1202, 24);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
@@ -217,6 +217,7 @@
             // 
             this.aBCDToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.renderingToolStripMenuItem});
+            this.aBCDToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.aBCDToolStripMenuItem.Name = "aBCDToolStripMenuItem";
             this.aBCDToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.aBCDToolStripMenuItem.Text = "Options";
@@ -227,14 +228,14 @@
             this.onChangeToolStripMenuItem,
             this.continousToolStripMenuItem});
             this.renderingToolStripMenuItem.Name = "renderingToolStripMenuItem";
-            this.renderingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.renderingToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.renderingToolStripMenuItem.Text = "Rendering";
             // 
             // onChangeToolStripMenuItem
             // 
             this.onChangeToolStripMenuItem.CheckOnClick = true;
             this.onChangeToolStripMenuItem.Name = "onChangeToolStripMenuItem";
-            this.onChangeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.onChangeToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.onChangeToolStripMenuItem.Text = "On Change";
             this.onChangeToolStripMenuItem.Click += new System.EventHandler(this.onChangeToolStripMenuItem_Click);
             // 
@@ -242,22 +243,24 @@
             // 
             this.continousToolStripMenuItem.CheckOnClick = true;
             this.continousToolStripMenuItem.Name = "continousToolStripMenuItem";
-            this.continousToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.continousToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.continousToolStripMenuItem.Text = "Continous";
             this.continousToolStripMenuItem.Click += new System.EventHandler(this.continousToolStripMenuItem_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(1202, 631);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.glControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "WIP";
             this.ResizeEnd += new System.EventHandler(this.Form1_ResizeEnd);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -21,8 +21,16 @@ namespace Eng_OpenTK
     public partial class MainForm : Form
     {
         Setup setup = new Setup();
+        Control control = new Control();
 
         bool loaded = false;
+        bool continous = false;
+
+        private Matrix4 projectionMatrix;
+        private Matrix4 modelViewMatrix;
+        private Vector3 cameraUp = Vector3.UnitY;
+
+        float rotX = 0, rotY = 0, rotZ = 0;
         float x = 0, y = 0, z = -50;
 
         int templicz = 0;
@@ -76,93 +84,42 @@ namespace Eng_OpenTK
 
         private void glControl1_Load(object sender, EventArgs e)
         {
-
             loaded = true;
-            GL.ClearColor(0.145f, 0.145f, 0.145f, 0);
-            SetupViewport();
+            GL.ClearColor(0.11f, 0.11f, 0.11f, 0);
+            GL.Enable(EnableCap.DepthTest);
+
+            setup.SetupViewport(modelViewMatrix, projectionMatrix, glControl1.Width, glControl1.Height);
             resize();
 
         }
         
-        private Matrix4 projectionMatrix;
-        private Matrix4 modelViewMatrix, temp;
-        private Vector3 cameraPosition;
-        private Vector3 cameraTarget;
-        private Vector3 cameraUp = Vector3.UnitY;
-
-
-        
-
-        private void SetupViewport()
-        {
-            
-
-
-
-            int w = glControl1.Width;
-            int h = glControl1.Height;
-            GL.MatrixMode(MatrixMode.Projection);
-            projectionMatrix = setup.SetPerspectiveProjection(w, h, 45, projectionMatrix);
-            cameraPosition = new Vector3(0, 0, -40);
-            cameraTarget = new Vector3(100, 20, 0);
-            modelViewMatrix = setup.SetLookAtCamera(cameraPosition, cameraTarget, cameraUp, modelViewMatrix);
-
-        }
 
         private void glControl1_Resize(object sender, EventArgs e)
         {
             if (!loaded)
                 return;
         }
+        
+        
+        
 
-
-        Matrix4 matrixProjection, matrixModelview;
-        float cameraRotation = 0f;
-        float rotX = 0, rotY = 0, rotZ = 0;
-
-        private void glControl1_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            //mousecoords();
-
-        }
-
-        void perp()
-        {
-            int w = glControl1.Width;
-            int h = glControl1.Height;
-
-            projectionMatrix = setup.SetPerspectiveProjection(w, h, 45, projectionMatrix); // 45 is in degrees
-            cameraPosition = new Vector3(0, 0, -40);
-            cameraTarget = new Vector3(100, 20, 0);
-            modelViewMatrix = setup.SetLookAtCamera(cameraPosition, cameraTarget, cameraUp, modelViewMatrix);
-
-        }
-
-        void ortho()
-        {
-            int w = glControl1.Width;
-            int h = glControl1.Height;
-
-            projectionMatrix = Matrix4.Identity;
-            GL.MatrixMode(MatrixMode.Projection);
-            GL.LoadIdentity(); // reset matrix
-            GL.Ortho(0, w, 0, h, -10000, 10000);
-
-        }
+        
         private void glControl1_Paint(object sender, PaintEventArgs e)
         {
-            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+            var mouse = Mouse.GetState();
 
+            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+            
             GL.MatrixMode(MatrixMode.Modelview);
             GL.LoadIdentity();
 
 
-            labelz();
-            perp();
+            
+            setup.SetupViewport(modelViewMatrix, projectionMatrix, glControl1.Width, glControl1.Height);
 
             translate();
 
-            GL.Enable(EnableCap.DepthTest);
+            #region ostrosłup
 
             GL.Color3(Color.Green);
             GL.Begin(BeginMode.Triangles);
@@ -182,9 +139,8 @@ namespace Eng_OpenTK
 
             GL.End();
 
+            setup.OrthoView(projectionMatrix, glControl1.Width, glControl1.Height);
 
-
-            ortho();
             GL.MatrixMode(MatrixMode.Modelview);
 
 
@@ -195,31 +151,17 @@ namespace Eng_OpenTK
             GL.Vertex2(10, 0);
 
             GL.End();
-            //catch()
-            var mouse = Mouse.GetState();
-            mousecoords(mouse.X, mouse.Y);
 
+            #endregion
 
-            label7.Text = mouse.X.ToString();
-            label8.Text = mouse.Y.ToString();
-
-            GL.VertexPointer(3, VertexPointerType.Float, 0, cube);
-            GL.ColorPointer(4, ColorPointerType.Float, 0, cubeColors);
-            GL.DrawElements(BeginMode.Triangles, 36, DrawElementsType.UnsignedByte, triangles);
-
+            
             glControl1.SwapBuffers();
-            //glControl1.Invalidate();
+
+            labelz(mouse.X, mouse.Y);
+            mousecoords(mouse.X, mouse.Y);
+            Redraw();
         }
-        void resize()
-        {
-            label11.Text = "abcdefgh";
-            glControl1.Width = this.Width - 40;
-            glControl1.Height = this.Height - 80;
-            panel1.Location = new Point(this.Width - 150, 30);
-            SetupViewport();
-            perp();
-            translateReset();
-        }
+        
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
             resize();
@@ -241,6 +183,7 @@ namespace Eng_OpenTK
             continousToolStripMenuItem.Checked = false;
             onChangeToolStripMenuItem.Enabled = false;
             continousToolStripMenuItem.Enabled = true;
+            continous = false;
         }
 
         private void continousToolStripMenuItem_Click(object sender, EventArgs e)
@@ -248,81 +191,18 @@ namespace Eng_OpenTK
             onChangeToolStripMenuItem.Checked = false;
             onChangeToolStripMenuItem.Enabled = true;
             continousToolStripMenuItem.Enabled = false;
+            continous = true;
+            Redraw();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             translateReset();
-
         }
-
-        void labelz()
-        {
-            label1.Text = x.ToString();
-            label2.Text = y.ToString();
-            label3.Text = z.ToString();
-        }
-        void mousecoords(int mX, int mY)
-        {
-
-            var mouse = Mouse.GetState();
-
-            int mX2 = mouse.X, mY2 = mouse.Y;
-
-            if (mouse.IsButtonDown(MouseButton.Left) == true)
-            {
-                Thread.Sleep(1000 / 60);
-                mouse = Mouse.GetState();
-
-
-                label9.Text = mY.ToString();
-
-                if (mX < mouse.X)
-                {
-                    rotY += 00000.1f;
-
-                }
-                if (mX > mouse.X)
-                {
-                    rotY -= 00000.1f;
-
-                }
-
-                if (mY < mouse.Y)
-                {
-                    rotX += 00000.1f;
-
-                }
-                if (mY > mouse.Y)
-                {
-                    rotX -= 00000.1f;
-
-                }
-
-                label10.Text = templicz.ToString();
-                templicz++;
-                translate();
-                glControl1.Invalidate();
-            }
-            label10.Text = templicz.ToString();
-            templicz++;
-        }
-        void translate()
-        {
-            modelViewMatrix = Matrix4.CreateRotationX(rotX) * Matrix4.CreateRotationY(rotY) * Matrix4.CreateRotationZ(rotZ) * Matrix4.CreateTranslation(new Vector3(x, y, z));
-            GL.MatrixMode(MatrixMode.Modelview);
-            GL.LoadMatrix(ref modelViewMatrix);
-        }
-        void translate(int xx, int yy, int zz)
-        {
-            modelViewMatrix = Matrix4.CreateRotationX(rotX) * Matrix4.CreateRotationY(rotY) * Matrix4.CreateRotationZ(rotZ) * Matrix4.CreateTranslation(new Vector3(xx, yy, zz));
-            GL.MatrixMode(MatrixMode.Modelview);
-            GL.LoadMatrix(ref modelViewMatrix);
-        }
+               
         private void glControl1_KeyDown(object sender, KeyEventArgs e)
         {
-            int a;
-
+            
             if (e.KeyCode == Keys.K)
                 x += 1f;
             if (e.KeyCode == Keys.H)
@@ -344,10 +224,79 @@ namespace Eng_OpenTK
                 rotY += 0.1f;
             if (e.KeyCode == Keys.E)
                 rotZ += 0.1f;
-            if (e.KeyCode == Keys.Space)
-                a = 0;
 
             glControl1.Invalidate();
+        }
+
+        void resize()
+        {
+            label11.Text = "abcdefgh";
+            glControl1.Width = this.Width - 170;
+            glControl1.Height = this.Height - 80;
+            panel1.Location = new Point(this.Width - 150, 30);
+            panel1.Size = new Size(125, glControl1.Height - 3);
+            setup.SetupViewport(modelViewMatrix, projectionMatrix, glControl1.Width, glControl1.Height);
+            translateReset();
+        }
+        void translate()
+        {
+            modelViewMatrix = Matrix4.CreateRotationX(rotX) * Matrix4.CreateRotationY(rotY) * Matrix4.CreateRotationZ(rotZ) * Matrix4.CreateTranslation(new Vector3(x, y, z));
+            GL.MatrixMode(MatrixMode.Modelview);
+            GL.LoadMatrix(ref modelViewMatrix);
+        }
+        void translate(int xx, int yy, int zz)
+        {
+            modelViewMatrix = Matrix4.CreateRotationX(rotX) * Matrix4.CreateRotationY(rotY) * Matrix4.CreateRotationZ(rotZ) * Matrix4.CreateTranslation(new Vector3(xx, yy, zz));
+            GL.MatrixMode(MatrixMode.Modelview);
+            GL.LoadMatrix(ref modelViewMatrix);
+        }
+        void labelz(int mouseX, int mouseY)
+        {
+            label1.Text = x.ToString();
+            label2.Text = y.ToString();
+            label3.Text = z.ToString();
+            label7.Text = mouseX.ToString();
+            label8.Text = mouseY.ToString();
+        }
+        void mousecoords(int mX, int mY)
+        {
+            var mouse = Mouse.GetState();
+
+            int mX2 = mouse.X, mY2 = mouse.Y;
+
+            if (mouse.IsButtonDown(MouseButton.Left) == true)
+            {
+                Thread.Sleep(1000 / 60);
+                mouse = Mouse.GetState();
+
+
+                label9.Text = mY.ToString();
+
+                if (mX < mouse.X)
+                    rotY += 00000.1f;
+
+                if (mX > mouse.X)
+                    rotY -= 00000.1f;
+
+                if (mY < mouse.Y)
+                    rotX += 00000.1f;
+
+                if (mY > mouse.Y)
+                    rotX -= 00000.1f;
+
+                label10.Text = templicz.ToString();
+                templicz++;
+                translate();
+                glControl1.Invalidate();
+            }
+            label10.Text = templicz.ToString();
+            templicz++;
+        }
+
+        void Redraw()
+        {
+            if(continous == true)
+                glControl1.Invalidate();
         }
     }
 }

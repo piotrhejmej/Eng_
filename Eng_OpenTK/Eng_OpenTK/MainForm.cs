@@ -14,7 +14,7 @@ using OpenTK.Input;
 using System.Configuration;
 using System.Threading;
 using Eng_OpenTK.Rendering;
-
+using Eng_OpenTK.Cube;
 
 namespace Eng_OpenTK
 {
@@ -29,53 +29,20 @@ namespace Eng_OpenTK
         private Matrix4 projectionMatrix;
         private Matrix4 modelViewMatrix;
         private Vector3 cameraUp = Vector3.UnitY;
+        private int count = 85184;
+
+        private static List<Cube.Cube> cube = new List<Cube.Cube>();
+
+        private static Assembly assembly = new Assembly();
+        private static CubeRender cubeRender = new CubeRender();
 
         float rotX = 0, rotY = 0, rotZ = 0;
         float x = 0, y = 0, z = -50;
 
         int templicz = 0;
 
-        #region Cube information
 
-        float[] cubeColors = {
-            1.0f, 0.0f, 0.0f, 1.0f,
-            0.0f, 1.0f, 0.0f, 1.0f,
-            0.0f, 0.0f, 1.0f, 1.0f,
-            0.0f, 1.0f, 1.0f, 1.0f,
-            1.0f, 0.0f, 0.0f, 1.0f,
-            0.0f, 1.0f, 0.0f, 1.0f,
-            0.0f, 0.0f, 1.0f, 1.0f,
-            0.0f, 1.0f, 1.0f, 1.0f,
-        };
 
-        byte[] triangles =
-        {
-            1, 0, 2, // front
-			3, 2, 0,
-            6, 4, 5, // back
-			4, 6, 7,
-            4, 7, 0, // left
-			7, 3, 0,
-            1, 2, 5, //right
-			2, 6, 5,
-            0, 1, 5, // top
-			0, 5, 4,
-            2, 3, 6, // bottom
-			3, 7, 6,
-        };
-
-        float[] cube = {
-           -1f, 1f,  -1f, // vertex[0]
-		   1f,  1f,  -1f, // vertex[1]
-		   1f, -1f,  -1f, // vertex[2]
-		   -1f,-1f,  -1f, // vertex[3]
-		   -1f, 1f,  -1f, // vertex[4]
-		   1f,  1f,  -1f, // vertex[5]
-		   1f, -1f,  -1f, // vertex[6]
-		   -1f,-1f,  -1f, // vertex[7]
-		};
-
-        #endregion
 
         public MainForm()
         {
@@ -91,6 +58,17 @@ namespace Eng_OpenTK
             setup.SetupViewport(modelViewMatrix, projectionMatrix, glControl1.Width, glControl1.Height);
             resize();
 
+            int partialCount = (int)Math.Pow(count, 1.0f / 3.0f);
+
+            for (int x = 0; x < partialCount; x++)
+                for (int y = 0; y < partialCount; y++)
+                    for (int z = 0; z < partialCount; z++)
+                    {
+                        assembly.buildCube(x, y, z, 1, count, ref cube);
+                        Console.WriteLine(x*x*x + y*y + z);
+                        Console.WriteLine("OK");
+                    }
+            
         }
         
 
@@ -112,33 +90,20 @@ namespace Eng_OpenTK
             
             GL.MatrixMode(MatrixMode.Modelview);
             GL.LoadIdentity();
-
-
             
             setup.SetupViewport(modelViewMatrix, projectionMatrix, glControl1.Width, glControl1.Height);
 
             translate();
 
-            #region ostrosłup
+            //----------------------
 
-            GL.Color3(Color.Green);
-            GL.Begin(BeginMode.Triangles);
-            GL.Vertex3(-5, -5, 5);
-            GL.Vertex3(5, -5, 5);
-            GL.Vertex3(0, 5, -0);
 
-            GL.Color3(Color.Blue);
-            GL.Vertex3(5, -5, 5);
-            GL.Vertex3(0, -5, -5);
-            GL.Vertex3(0, 5, -0);
+            cubeRender.Render(cube, count);
 
-            GL.Color3(Color.Red);
-            GL.Vertex3(-5, -5, 5);
-            GL.Vertex3(0, -5, -5);
-            GL.Vertex3(0, 5, -0);
 
-            GL.End();
+            //---------------------
 
+           
             setup.OrthoView(projectionMatrix, glControl1.Width, glControl1.Height);
 
             GL.MatrixMode(MatrixMode.Modelview);
@@ -152,7 +117,7 @@ namespace Eng_OpenTK
 
             GL.End();
 
-            #endregion
+            //#endregion
 
             
             glControl1.SwapBuffers();
@@ -168,9 +133,9 @@ namespace Eng_OpenTK
         }
         void translateReset()
         {
-            x = 0;
-            y = 0;
-            z = -50;
+            x = -45;
+            y = -25;
+            z = -150;
             rotX = 0;
             rotY = 0;
             rotZ = 0;

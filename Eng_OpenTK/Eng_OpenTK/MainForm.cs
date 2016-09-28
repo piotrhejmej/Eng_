@@ -59,16 +59,19 @@ namespace Eng_OpenTK
             resize();
 
             int partialCount = (int)Math.Pow(count, 1.0f / 3.0f);
+            Loader loader = new Loader();
+            loader.Show();
+            loader.setSize(count);
 
             for (int x = 0; x < partialCount; x++)
                 for (int y = 0; y < partialCount; y++)
                     for (int z = 0; z < partialCount; z++)
                     {
                         assembly.buildCube(x, y, z, 1, count, ref cube);
-                        Console.WriteLine(x*x*x + y*y + z);
-                        Console.WriteLine("OK");
+                        loader.progres(x, y, z);
                     }
-            
+            loader.Close();
+            loader.Dispose();
         }
         
 
@@ -196,10 +199,10 @@ namespace Eng_OpenTK
         void resize()
         {
             label11.Text = "abcdefgh";
-            glControl1.Width = this.Width - 170;
+            glControl1.Width = this.Width - 250;
             glControl1.Height = this.Height - 80;
-            panel1.Location = new Point(this.Width - 150, 30);
-            panel1.Size = new Size(125, glControl1.Height - 3);
+            panel1.Location = new Point(this.Width - 235, 30);
+            panel1.Size = new Size(235, glControl1.Height - 3);
             setup.SetupViewport(modelViewMatrix, projectionMatrix, glControl1.Width, glControl1.Height);
             translateReset();
         }

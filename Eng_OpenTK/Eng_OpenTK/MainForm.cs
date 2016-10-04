@@ -41,14 +41,32 @@ namespace Eng_OpenTK
 
         int templicz = 0;
 
-
+        
 
 
         public MainForm()
         {
             InitializeComponent();
+            toolTip1.SetToolTip(panel2, "To set size of the matrix, enter down the size of the one axis and hit Set Size button.");
         }
+        private void initialize()
+        {
+            int partialCount = (int)Math.Pow(count, 1.0f / 3.0f);
 
+            Loader loader = new Loader();
+            loader.Show();
+            loader.setSize(count);
+
+            for (int x = 0; x < partialCount; x++)
+                for (int y = 0; y < partialCount; y++)
+                    for (int z = 0; z < partialCount; z++)
+                    {
+                        assembly.buildCube(x, y, z, 0.5f, count, ref cube);
+                        loader.progres(x, y, z);
+                    }
+            loader.Close();
+            loader.Dispose();
+        }
         private void glControl1_Load(object sender, EventArgs e)
         {
             loaded = true;
@@ -58,20 +76,7 @@ namespace Eng_OpenTK
             setup.SetupViewport(modelViewMatrix, projectionMatrix, glControl1.Width, glControl1.Height);
             resize();
 
-            int partialCount = (int)Math.Pow(count, 1.0f / 3.0f);
-            Loader loader = new Loader();
-            loader.Show();
-            loader.setSize(count);
-
-            for (int x = 0; x < partialCount; x++)
-                for (int y = 0; y < partialCount; y++)
-                    for (int z = 0; z < partialCount; z++)
-                    {
-                        assembly.buildCube(x, y, z, 1, count, ref cube);
-                        loader.progres(x, y, z);
-                    }
-            loader.Close();
-            loader.Dispose();
+            
         }
         
 
@@ -212,6 +217,45 @@ namespace Eng_OpenTK
             GL.MatrixMode(MatrixMode.Modelview);
             GL.LoadMatrix(ref modelViewMatrix);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int tempCount = 0;
+
+            Int32.TryParse(textBox1.Text, out tempCount);
+            count = (int)Math.Pow(tempCount, 3);
+            Console.Write(count);
+            button2.Visible = false;
+            textBox1.Visible = false;
+            button3.Visible = true;
+
+            label12.Text = "Click the Generate button to Generate and render matrix";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            initialize();
+            button3.Visible = false;
+            textBox1.Visible = false;
+            button12.Visible = true;
+            glControl1.Invalidate();
+
+
+            label12.Text = "Click the Reset button to build new Matrix";
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            panel2.Visible = true;
+            button2.Visible = true;
+            textBox1.Visible = true;
+            button12.Visible = false;
+            cube.Clear();
+
+
+            label12.Text = "Matrix Generation. Choose size";
+        }
+
         void translate(int xx, int yy, int zz)
         {
             modelViewMatrix = Matrix4.CreateRotationX(rotX) * Matrix4.CreateRotationY(rotY) * Matrix4.CreateRotationZ(rotZ) * Matrix4.CreateTranslation(new Vector3(xx, yy, zz));

@@ -9,10 +9,12 @@ namespace Eng_OpenTK.Cube
 {
     class Assembly
     {
-        public void buildCube(int x, int y, int z, int length, int count, ref List<Cube> tempList)
+        public void buildCube(int X, int Y, int Z, float length, int count, ref List<Cube> tempList)
         {
             Cube cube = new Cube();
-
+            float x = length * X;
+            float y = length * Y;
+            float z = length * Z;
             double cR = 0, cB = 0, cG = 0;
             Random rand = new Random((int)DateTime.Now.Ticks);
             double partialCount = Math.Pow(count, (1.0f / 3.0f));

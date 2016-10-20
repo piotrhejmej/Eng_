@@ -20,7 +20,6 @@ namespace Eng_OpenTK.Rendering
             {
                 double partialCount = Math.Pow(count, (1.0f / 3.0f));
                 partialCount = Math.Pow(partialCount, 3);
-
                 unsafe
                 {
                     
@@ -30,13 +29,17 @@ namespace Eng_OpenTK.Rendering
                         {
                             fixed (byte* ptriangles = cube[i].triangles)
                             {
-                                GL.VertexPointer(3, VertexPointerType.Float, 0, new IntPtr(pcube));
-                                GL.EnableClientState(ArrayCap.VertexArray);
+                                if (cube[i].state != 0)
+                                {
+                                    GL.VertexPointer(3, VertexPointerType.Float, 0, new IntPtr(pcube));
+                                    GL.EnableClientState(ArrayCap.VertexArray);
 
-                                GL.ColorPointer(3, ColorPointerType.Float, 0, new IntPtr(pcubeColors));
-                                GL.EnableClientState(ArrayCap.ColorArray);
+                                    GL.ColorPointer(3, ColorPointerType.Float, 0, new IntPtr(pcubeColors));
+                                    GL.EnableClientState(ArrayCap.ColorArray);
 
-                                GL.DrawElements(BeginMode.Triangles, 36, DrawElementsType.UnsignedByte, new IntPtr(ptriangles));
+
+                                    GL.DrawElements(BeginMode.Triangles, 36, DrawElementsType.UnsignedByte, new IntPtr(ptriangles));
+                                }
                             }
                         }
                     }

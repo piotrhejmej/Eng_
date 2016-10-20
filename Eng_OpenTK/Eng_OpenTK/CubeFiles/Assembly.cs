@@ -12,6 +12,8 @@ namespace Eng_OpenTK.Cube
         public void buildCube(int X, int Y, int Z, float length, int count, ref List<Cube> tempList)
         {
             Cube cube = new Cube();
+            ColourSetter setters = new ColourSetter();
+            
             float x = length * X;
             float y = length * Y;
             float z = length * Z;
@@ -19,6 +21,11 @@ namespace Eng_OpenTK.Cube
             Random rand = new Random((int)DateTime.Now.Ticks);
             double partialCount = Math.Pow(count, (1.0f / 3.0f));
 
+            if (rand.NextDouble() > 0.5)
+                cube.state = (int)(rand.NextDouble() * 255);
+            else
+                cube.state = 0;
+            
             cR = rand.NextDouble();
             cG = rand.NextDouble();
             cB = rand.NextDouble();
@@ -34,18 +41,8 @@ namespace Eng_OpenTK.Cube
                 x - length,     y - length,     z - length,
                 x - length,     y,              z - length,
             };
-
-            cube.cubeColor = new float[]
-            {
-                (float)cR, (float)cB, (float)cG,
-                (float)cR, (float)cB, (float)cG,
-                (float)cR, (float)cB, (float)cG,
-                (float)cR, (float)cB, (float)cG,
-                (float)cR, (float)cB, (float)cG,
-                (float)cR, (float)cB, (float)cG,
-                (float)cR, (float)cB, (float)cG,
-                (float)cR, (float)cB, (float)cG,
-            };
+            
+            cube.cubeColor = setters.getColour(cube.state);
 
             cube.triangles = new byte[]
             {
@@ -55,7 +52,7 @@ namespace Eng_OpenTK.Cube
                 4, 6, 7,
                 4, 7, 0, // left
                 7, 3, 0,
-                1, 2, 5, //right
+                1, 2, 5, // right
                 2, 6, 5,
                 0, 1, 5, // top
                 0, 5, 4,
@@ -64,7 +61,6 @@ namespace Eng_OpenTK.Cube
             };
 
             tempList.Add(cube);
-            //Thread.Sleep(1);
         }
 
 

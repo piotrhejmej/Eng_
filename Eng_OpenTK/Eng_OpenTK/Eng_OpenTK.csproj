@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CubeFiles\Assembly.cs" />
+    <Compile Include="CubeFiles\ColourSetter.cs" />
     <Compile Include="CubeFiles\Cube.cs" />
     <Compile Include="Loader.cs">
       <SubType>Form</SubType>

@@ -30,6 +30,7 @@ namespace Eng_OpenTK
         private Matrix4 modelViewMatrix;
         private Vector3 cameraUp = Vector3.UnitY;
         private int count = 85184;
+        float size = 1f;
 
         private static List<Cube.Cube> cube = new List<Cube.Cube>();
 
@@ -52,7 +53,7 @@ namespace Eng_OpenTK
         private void initialize()
         {
             int partialCount = (int)Math.Pow(count, 1.0f / 3.0f);
-
+            int correction = partialCount / 2;
             Loader loader = new Loader();
             loader.Show();
             loader.setSize(count);
@@ -61,7 +62,7 @@ namespace Eng_OpenTK
                 for (int y = 0; y < partialCount; y++)
                     for (int z = 0; z < partialCount; z++)
                     {
-                        assembly.buildCube(x, y, z, 0.5f, count, ref cube);
+                        assembly.buildCube(x-correction, y-correction, z-correction, size, count, ref cube);
                         loader.progres(x, y, z);
                     }
             loader.Close();
@@ -75,8 +76,6 @@ namespace Eng_OpenTK
 
             setup.SetupViewport(modelViewMatrix, projectionMatrix, glControl1.Width, glControl1.Height);
             resize();
-
-            
         }
         
 
@@ -142,7 +141,7 @@ namespace Eng_OpenTK
         void translateReset()
         {
             x = -45;
-            y = -25;
+            y = -15;
             z = -150;
             rotX = 0;
             rotY = 0;
@@ -221,10 +220,12 @@ namespace Eng_OpenTK
         private void button2_Click(object sender, EventArgs e)
         {
             int tempCount = 0;
-
-            Int32.TryParse(textBox1.Text, out tempCount);
+            float tempSize = 0;
+            int.TryParse(textBox1.Text, out tempCount);
+            float.TryParse(textBox2.Text, out tempSize);
             count = (int)Math.Pow(tempCount, 3);
-            Console.Write(count);
+            size = 50f / tempCount;
+            Console.Write("\n" + size + "count: " + tempCount);
             button2.Visible = false;
             textBox1.Visible = false;
             button3.Visible = true;

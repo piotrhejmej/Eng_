@@ -21,11 +21,8 @@ namespace Eng_OpenTK.Cube
             Random rand = new Random((int)DateTime.Now.Ticks);
             double partialCount = Math.Pow(count, (1.0f / 3.0f));
 
-            if (rand.NextDouble() > 0.5)
-                cube.state = (int)(rand.NextDouble() * 255);
-            else
-                cube.state = 0;
-            
+            cube.state = (int)(rand.NextDouble()*255);
+            //Console.WriteLine(cube.state);
             cR = rand.NextDouble();
             cG = rand.NextDouble();
             cB = rand.NextDouble();

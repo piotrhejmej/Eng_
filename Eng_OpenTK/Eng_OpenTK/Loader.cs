@@ -25,7 +25,7 @@ namespace Eng_OpenTK
         }
         public void progres(int x, int y, int z)
         {
-            progressBar1.Value = x * x * x + y * y + z;
+            //progressBar1.Value = x * x * x + y * y + z;
         }
         private void label1_Click(object sender, EventArgs e)
         {

@@ -33,7 +33,7 @@ namespace Eng_OpenTK
         float size = 1f;
 
         private static List<Cube.Cube> cube = new List<Cube.Cube>();
-
+        
         private static Assembly assembly = new Assembly();
         private static CubeRender cubeRender = new CubeRender();
 
@@ -54,6 +54,7 @@ namespace Eng_OpenTK
         {
             int partialCount = (int)Math.Pow(count, 1.0f / 3.0f);
             int correction = partialCount / 2;
+            Console.WriteLine("correction" + correction);
             Loader loader = new Loader();
             loader.Show();
             loader.setSize(count);
@@ -65,6 +66,7 @@ namespace Eng_OpenTK
                         assembly.buildCube(x-correction, y-correction, z-correction, size, count, ref cube);
                         loader.progres(x, y, z);
                     }
+           
             loader.Close();
             loader.Dispose();
         }

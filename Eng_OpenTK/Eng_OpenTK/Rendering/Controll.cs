@@ -13,5 +13,19 @@ namespace Eng_OpenTK.Rendering
 {
     class Controll
     {
+        private int count { get; set; }
+
+        public void setVariables(int Count)
+        {
+            count = Count;
+        }
+        public int getCount()
+        {
+            return count;
+        }
+        public void setCount(int Count)
+        {
+            count = Count;
+        }
     }
 }

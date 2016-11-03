@@ -44,6 +44,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -54,22 +55,20 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aBCDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renderingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onChangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.continousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -208,13 +207,16 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button12);
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label4);
@@ -227,7 +229,7 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(6, 4);
+            this.button12.Location = new System.Drawing.Point(13, 280);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(192, 53);
             this.button12.TabIndex = 17;
@@ -235,6 +237,17 @@
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Visible = false;
             this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(13, 339);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(192, 53);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "Generate Matrix";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel3
             // 
@@ -246,8 +259,6 @@
             this.panel3.Controls.Add(this.button6);
             this.panel3.Controls.Add(this.button5);
             this.panel3.Controls.Add(this.button4);
-            this.panel3.Controls.Add(this.label13);
-            this.panel3.Controls.Add(this.comboBox1);
             this.panel3.Location = new System.Drawing.Point(13, 84);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 177);
@@ -266,7 +277,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(15, 49);
+            this.button10.Location = new System.Drawing.Point(16, 36);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(111, 25);
             this.button10.TabIndex = 17;
@@ -282,6 +293,7 @@
             this.button9.TabIndex = 22;
             this.button9.Text = "↗";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
@@ -291,6 +303,7 @@
             this.button8.TabIndex = 21;
             this.button8.Text = "↙";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -300,6 +313,7 @@
             this.button7.TabIndex = 20;
             this.button7.Text = "←";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -309,6 +323,7 @@
             this.button6.TabIndex = 19;
             this.button6.Text = "→";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -318,6 +333,7 @@
             this.button5.TabIndex = 18;
             this.button5.Text = "↓";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -327,85 +343,22 @@
             this.button4.TabIndex = 17;
             this.button4.Text = "↑";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label13.Location = new System.Drawing.Point(2, 0);
+            this.label13.Location = new System.Drawing.Point(8, 9);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(152, 13);
             this.label13.TabIndex = 16;
             this.label13.Text = "Chose shape to add into matrix";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Parallelogram",
-            "Cylinder",
-            "Sphere"});
-            this.comboBox1.Location = new System.Drawing.Point(16, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(110, 21);
-            this.comboBox1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button12);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Location = new System.Drawing.Point(11, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 62);
-            this.panel2.TabIndex = 12;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(120, 25);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Set Size";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(3, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(192, 53);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Generate Matrix";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(6, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(53, 20);
-            this.textBox1.TabIndex = 14;
-            this.textBox1.Text = "15";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label12.Location = new System.Drawing.Point(3, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(153, 13);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "Matrix Generation. Choose size";
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
             this.aBCDToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -452,13 +405,45 @@
             // 
             this.toolTip1.IsBalloon = true;
             // 
-            // textBox2
+            // fileToolStripMenuItem
             // 
-            this.textBox2.Location = new System.Drawing.Point(65, 27);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(49, 20);
-            this.textBox2.TabIndex = 16;
-            this.textBox2.Text = "2";
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.openToolStripMenuItem,
+            this.saveToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(11, 36);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(111, 25);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Put Inside";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // MainForm
             // 
@@ -479,9 +464,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -510,10 +492,6 @@
         private System.Windows.Forms.ToolStripMenuItem renderingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem onChangeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem continousToolStripMenuItem;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ToolTip toolTip1;
@@ -527,7 +505,11 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.Button button2;
     }
 }

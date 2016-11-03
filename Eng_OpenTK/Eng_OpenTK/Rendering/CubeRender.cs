@@ -44,7 +44,7 @@ namespace Eng_OpenTK.Rendering
                         }
                     }
                 }
-               // drawBoundaries();
+                drawBoundaries();
             }
             catch(Exception e)
             {

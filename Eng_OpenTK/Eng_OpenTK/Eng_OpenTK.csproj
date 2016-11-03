@@ -66,6 +66,13 @@
     <Compile Include="CubeFiles\Assembly.cs" />
     <Compile Include="CubeFiles\ColourSetter.cs" />
     <Compile Include="CubeFiles\Cube.cs" />
+    <Compile Include="CubeFiles\Shape.cs" />
+    <Compile Include="InitializationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InitializationWindow.Designer.cs">
+      <DependentUpon>InitializationWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Loader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +95,12 @@
     <Compile Include="Rendering\Controll.cs" />
     <Compile Include="Rendering\CubeRender.cs" />
     <Compile Include="Rendering\Setup.cs" />
+    <Compile Include="ShapeDefinition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShapeDefinition.Designer.cs">
+      <DependentUpon>ShapeDefinition.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -97,6 +110,9 @@
     <Folder Include="libs\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="InitializationWindow.resx">
+      <DependentUpon>InitializationWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Loader.resx">
       <DependentUpon>Loader.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +122,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShapeDefinition.resx">
+      <DependentUpon>ShapeDefinition.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -12,7 +12,7 @@ namespace Eng_OpenTK.Cube
         {
             float cR, cB, cG;
             cR = cB = cG = (float)state / 255;
-
+            Console.WriteLine(cR);
             float[] stateColour = new float[]
             {
                 cR, cB, cG,

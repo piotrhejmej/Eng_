@@ -23,9 +23,9 @@ namespace Eng_OpenTK
             progressBar1.Maximum = size;
 
         }
-        public void progres(int x, int y, int z)
+        public void progres(int x, int y, int z, int partialCount)
         {
-            progressBar1.Value = x * x * x + y * y + z;
+            progressBar1.Value = x * partialCount * partialCount + y * partialCount + z;
         }
         private void label1_Click(object sender, EventArgs e)
         {

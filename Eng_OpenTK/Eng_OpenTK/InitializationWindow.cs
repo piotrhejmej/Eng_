@@ -13,7 +13,8 @@ namespace Eng_OpenTK
 {
     public partial class InitializationWindow : Form
     {
-        
+        bool close = false;
+
         public InitializationWindow()
         {
             InitializeComponent();
@@ -21,20 +22,22 @@ namespace Eng_OpenTK
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            MainForm parent = (MainForm)this.Owner;
+            parent.ShowInTaskbar = false;
+
             int tempCount;
             int.TryParse(textBox1.Text, out tempCount);
 
             if (tempCount < 100)
             {
-                passVariablesAndCloseSelf(tempCount);
+                passVariablesAndCloseSelf(tempCount, ref parent);
             }
             else if (tempCount < 160)
             {
                 DialogResult dialogResult = MessageBox.Show("Size larger than 100 may cause problems on lower class PCs. \nAre you certain to use "+tempCount+" as the Size Value?", "Are you Sure?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    passVariablesAndCloseSelf(tempCount);
+                    passVariablesAndCloseSelf(tempCount, ref parent);
                 }
             }
             else if(tempCount>=160)
@@ -43,9 +46,8 @@ namespace Eng_OpenTK
             }
             
         }
-        private void passVariablesAndCloseSelf(int tempCount)
+        private void passVariablesAndCloseSelf(int tempCount, ref MainForm parent)
         {
-            MainForm parent = (MainForm)this.Owner;
             parent.setVars(tempCount);
             this.Close();
             parent.Opacity = 100;
@@ -55,6 +57,14 @@ namespace Eng_OpenTK
 
         private void button1_Click(object sender, EventArgs e)
         {
+            close = true;
+            Application.Exit();
+        }
+
+        private void InitializationWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(close == false)
+                e.Cancel = true;
             
         }
     }

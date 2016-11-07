@@ -9,7 +9,7 @@ namespace Eng_OpenTK.Cube
 {
     class Assembly
     {
-        public void buildCube(int X, int Y, int Z, float length, int count, ref List<Cube> tempList)
+        public Cube buildCube(int X, int Y, int Z, float length, int count/*, ref List<Cube> tempList*/)
         {
             Cube cube = new Cube();
             ColourSetter setters = new ColourSetter();
@@ -22,7 +22,6 @@ namespace Eng_OpenTK.Cube
             double partialCount = Math.Pow(count, (1.0f / 3.0f));
 
             cube.state = 0;
-            //Console.WriteLine(cube.state);
             cR = rand.NextDouble();
             cG = rand.NextDouble();
             cB = rand.NextDouble();
@@ -57,7 +56,9 @@ namespace Eng_OpenTK.Cube
                 3, 7, 6,
             };
 
-            tempList.Add(cube);
+            //tempList.Add(cube);
+
+            return cube;
         }
 
 

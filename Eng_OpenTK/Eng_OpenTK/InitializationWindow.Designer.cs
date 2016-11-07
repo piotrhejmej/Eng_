@@ -76,7 +76,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(65, 20);
             this.textBox1.TabIndex = 14;
-            this.textBox1.Text = "15";
+            this.textBox1.Text = "5";
             // 
             // label12
             // 
@@ -100,11 +100,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(74, 192);
+            this.button1.Location = new System.Drawing.Point(12, 236);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 23);
+            this.button1.Size = new System.Drawing.Size(88, 23);
             this.button1.TabIndex = 16;
-            this.button1.Text = "Set Size";
+            this.button1.Text = "Abort";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -123,6 +123,7 @@
             this.Name = "InitializationWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InitializationWindow";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InitializationWindow_FormClosing);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);

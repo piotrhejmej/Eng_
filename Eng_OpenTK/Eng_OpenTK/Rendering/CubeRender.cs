@@ -44,87 +44,90 @@ namespace Eng_OpenTK.Rendering
                         }
                     }
                 }
-                drawBoundaries();
+                drawBoundaries(cube[0].cube);
             }
             catch(Exception e)
             {
-                Console.Write("Upps. Something went wrong\n");
+                Console.Write("Upps. Something went wrong\n"+e);
             }
 
 
         }
-        private void drawBoundaries()
+        private void drawBoundaries(float[] cube)
         {
+            float start = cube[16];
+            float end = start + 50;
+
             GL.Begin(BeginMode.Lines);
                 GL.Color3(System.Drawing.Color.White);
-                GL.Vertex3(-25, -25, -25);
-                GL.Vertex3(25, -25, -25);
+                GL.Vertex3(end, end, end);
+                GL.Vertex3(start, end, end);
             GL.End();
 
             GL.Begin(BeginMode.Lines);
                 GL.Color3(System.Drawing.Color.White);
-                GL.Vertex3(-25, -25, -25);
-                GL.Vertex3(-25, 25, -25);
+                GL.Vertex3(end, end, end);
+                GL.Vertex3(end, start, end);
             GL.End();
 
             GL.Begin(BeginMode.Lines);
                 GL.Color3(System.Drawing.Color.White);
-                GL.Vertex3(-25, -25, -25);
-                GL.Vertex3(-25, -25, 25);
+                GL.Vertex3(end, end, end);
+                GL.Vertex3(end, end, start);
             GL.End();
 
             GL.Begin(BeginMode.Lines);
                 GL.Color3(System.Drawing.Color.White);
-                GL.Vertex3(25,25,25);
-                GL.Vertex3(25, 25, -25);
+                GL.Vertex3(start,start,start);
+                GL.Vertex3(start, start, end);
             GL.End();
 
             GL.Begin(BeginMode.Lines);
-            GL.Color3(System.Drawing.Color.White);
-            GL.Vertex3(25, 25, 25);
-            GL.Vertex3(25, -25, 25);
+                GL.Color3(System.Drawing.Color.White);
+                GL.Vertex3(start, start, start);
+                GL.Vertex3(start, end, start);
             GL.End();
             
             GL.Begin(BeginMode.Lines);
-            GL.Color3(System.Drawing.Color.White);
-            GL.Vertex3(25, 25, 25);
-            GL.Vertex3(-25, 25, 25);
+                GL.Color3(System.Drawing.Color.White);
+                GL.Vertex3(start, start, start);
+                GL.Vertex3(end, start, start);
             GL.End();
 
             GL.Begin(BeginMode.Lines);
-            GL.Color3(System.Drawing.Color.White);
-            GL.Vertex3(-25, 25, -25);
-            GL.Vertex3(25, 25, -25);
+                GL.Color3(System.Drawing.Color.White);
+                GL.Vertex3(end, start, end);
+                GL.Vertex3(start, start, end);
             GL.End();
 
             GL.Begin(BeginMode.Lines);
-            GL.Color3(System.Drawing.Color.White);
-            GL.Vertex3(-25, 25, -25);
-            GL.Vertex3(-25, 25, 25);
+                GL.Color3(System.Drawing.Color.White);
+                GL.Vertex3(end, start, end);
+                GL.Vertex3(end, start, start);
             GL.End();
 
             GL.Begin(BeginMode.Lines);
-            GL.Color3(System.Drawing.Color.White);
-            GL.Vertex3(-25, 25, 25);
-            GL.Vertex3(-25, -25, 25);
+                GL.Color3(System.Drawing.Color.White);
+                GL.Vertex3(end, start, start);
+                GL.Vertex3(end, end, start);
             GL.End();
             
             GL.Begin(BeginMode.Lines);
-            GL.Color3(System.Drawing.Color.White);
-            GL.Vertex3(-25, -25, 25);
-            GL.Vertex3(25, -25, 25);
+                GL.Color3(System.Drawing.Color.White);
+                GL.Vertex3(end, end, start);
+                GL.Vertex3(start, end, start);
             GL.End();
 
             GL.Begin(BeginMode.Lines);
-            GL.Color3(System.Drawing.Color.White);
-            GL.Vertex3(25, -25, 25);
-            GL.Vertex3(25, -25, -25);
+                GL.Color3(System.Drawing.Color.White);
+                GL.Vertex3(start, end, start);
+                GL.Vertex3(start, end, end);
             GL.End();
 
             GL.Begin(BeginMode.Lines);
-            GL.Color3(System.Drawing.Color.White);
-            GL.Vertex3(25, 25, -25);
-            GL.Vertex3(25, -25, -25);
+                GL.Color3(System.Drawing.Color.White);
+                GL.Vertex3(start, start, end);
+                GL.Vertex3(start, end, end);
             GL.End();
         }
 

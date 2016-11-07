@@ -37,7 +37,9 @@
             this.progressBar1.Location = new System.Drawing.Point(17, 73);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(431, 23);
+            this.progressBar1.Step = 1;
             this.progressBar1.TabIndex = 0;
+            this.progressBar1.UseWaitCursor = true;
             // 
             // label1
             // 

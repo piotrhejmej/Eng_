@@ -16,6 +16,7 @@ using System.Threading;
 using Eng_OpenTK.Rendering;
 using Eng_OpenTK.Cube;
 using Eng_OpenTK.CubeFiles;
+using System.IO;
 
 namespace Eng_OpenTK
 {
@@ -24,6 +25,8 @@ namespace Eng_OpenTK
         Setup setup = new Setup();
         static Controll control = new Controll();
         Shape shape = new Shape();
+        List<Vector3> coordList = new List<Vector3>();
+        List<Vector3> shapeList = new List<Vector3>();
 
         bool loaded = false;
         bool continous = false;
@@ -32,9 +35,9 @@ namespace Eng_OpenTK
         private Matrix4 modelViewMatrix;
         private Vector3 cameraUp = Vector3.UnitY;
         float size = 1f;
-        
+
         private static List<Cube.Cube> cube = new List<Cube.Cube>();
-        
+
         private static Assembly assembly = new Assembly();
         private static CubeRender cubeRender = new CubeRender();
 
@@ -50,7 +53,6 @@ namespace Eng_OpenTK
             InitializationWindow initWindow = new InitializationWindow();
             this.Opacity = 0;
             initWindow.Show(this);
-            
         }
         public void setVars(int count)
         {
@@ -69,14 +71,13 @@ namespace Eng_OpenTK
             loader.setSize(control.getCount());
 
             for (int x = 0; x < partialCount; x++)
-                    for (int y = 0; y < partialCount; y++)
-                            for (int z = 0; z < partialCount; z++)
-                            {
-                                cube.Add(assembly.buildCube(x - correction, y - correction, z - correction, size, control.getCount()));
-                                loader.progres(x, y, z, partialCount);
-                            }
-                    
-
+                for (int y = 0; y < partialCount; y++)
+                    for (int z = 0; z < partialCount; z++)
+                    {
+                        cube.Add(assembly.buildCube(x, y, z, correction, size, control.getCount()));
+                        loader.progres(x, y, z, partialCount);
+                    }
+            
             Console.Write("\n");
             loader.Close();
             loader.Dispose();
@@ -90,36 +91,33 @@ namespace Eng_OpenTK
             setup.SetupViewport(modelViewMatrix, projectionMatrix, glControl1.Width, glControl1.Height);
             resize();
         }
-        
+
 
         private void glControl1_Resize(object sender, EventArgs e)
         {
             if (!loaded)
                 return;
         }
-        
+
         private void glControl1_Paint(object sender, PaintEventArgs e)
         {
             var mouse = Mouse.GetState();
 
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-            
+
             GL.MatrixMode(MatrixMode.Modelview);
             GL.LoadIdentity();
-            
+
             setup.SetupViewport(modelViewMatrix, projectionMatrix, glControl1.Width, glControl1.Height);
 
             translate();
-            
 
-            if(cube.Any())
+            if (cube.Any())
                 cubeRender.Render(cube, control.getCount());
-            
 
             setup.OrthoView(projectionMatrix, glControl1.Width, glControl1.Height);
 
             GL.MatrixMode(MatrixMode.Modelview);
-
 
             GL.Begin(BeginMode.Triangles);
             GL.Color3(Color.White);
@@ -129,16 +127,13 @@ namespace Eng_OpenTK
 
             GL.End();
 
-            //#endregion
-
-            
             glControl1.SwapBuffers();
 
             labelz(mouse.X, mouse.Y);
             mousecoords(mouse.X, mouse.Y);
             Redraw();
         }
-        
+
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
             resize();
@@ -176,10 +171,9 @@ namespace Eng_OpenTK
         {
             translateReset();
         }
-               
+
         private void glControl1_KeyDown(object sender, KeyEventArgs e)
         {
-            
             if (e.KeyCode == Keys.K)
                 x += 1f;
             if (e.KeyCode == Keys.H)
@@ -207,7 +201,7 @@ namespace Eng_OpenTK
 
         void resize()
         {
-            label11.Text = "abcdefgh";
+            label11.Text = "Hello Moto";
             glControl1.Width = this.Width - 250;
             glControl1.Height = this.Height - 80;
             panel1.Location = new Point(this.Width - 235, 30);
@@ -236,20 +230,38 @@ namespace Eng_OpenTK
             button3.Visible = false;
             button12.Visible = true;
             glControl1.Invalidate();
-
-            
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
             button12.Visible = false;
             cube.Clear();
-            
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Stream myStream;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            string line;
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 0;
+            saveFileDialog1.RestoreDirectory = true;
 
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if ((myStream = saveFileDialog1.OpenFile()) != null)
+                {
+                    myStream.Close();
+                    using (StreamWriter outfile = new StreamWriter(saveFileDialog1.FileName))
+                    {
+                        foreach (Cube.Cube item in cube)
+                        {
+                            outfile.WriteLine(String.Format("{0}, {1}, {2}, {3}", item.x, item.y, item.z, item.state));
+                        }
+                    }
+                }
+            }
+            Console.WriteLine("I'm out biatch");
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -277,42 +289,49 @@ namespace Eng_OpenTK
             shape.y = y;
             shape.z = z;
             shape.startX = shape.startY = shape.startZ = 0;
-
-            Console.WriteLine("X: " + x + "\nY: " + y + "\nZ: " + z);
+            
             drawShape();
         }
-        private void drawShape()
+        private List<Vector3> returnShapeCoords(Vector3 startPoint, Vector3 endPoint)
         {
-            int xx, yy, zz;
-            ColourSetter setter = new ColourSetter();
+            Vector3 coord = new Vector3(startPoint.X,startPoint.Y,startPoint.Z);
             int partialCount = (int)Math.Pow(control.getCount(), 1.0f / 3.0f);
-            for (int x = shape.startX; x < shape.x + shape.startX; x++)
-                for (int y = shape.startY; y < shape.y + shape.startY; y++)
-                    for (int z = shape.startZ; z < shape.z + shape.startZ; z++)
+
+            float xx, yy, zz;
+
+            for (float x = startPoint.X; x < endPoint.X + startPoint.X; x++)
+                for (float y = startPoint.Y; y < endPoint.Y + startPoint.Y; y++)
+                    for (float z = startPoint.Z; z < endPoint.Z + startPoint.Z; z++)
                     {
                         xx = x;
                         yy = y;
                         zz = z;
 
                         shapeBoudaries(ref xx, ref yy, ref zz, partialCount);
-
-                        try
-                        {
-                            cube[xx * partialCount * partialCount + yy * partialCount + zz].state = 1;
-                            cube[xx * partialCount * partialCount + yy * partialCount + zz].cubeColor = setter.getColour(125);
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine("An error occured: \n" + e);
-                        }
-                    
+                        coordList.Add(new Vector3(xx, yy, zz));
                     }
-            glControl1.Invalidate(); 
+           return coordList;
+        }
+        private void drawShape()
+        {
+            ColourSetter setter = new ColourSetter();
+            shapeList.Clear();
+            int partialCount = (int)Math.Pow(control.getCount(), 1.0f / 3.0f);
+
+            shapeList = returnShapeCoords(new Vector3(shape.startX, shape.startY, shape.startZ), new Vector3(shape.x, shape.y, shape.z));
+            
+            foreach(Vector3 item in shapeList)
+            {
+                cube[(int)(item.X * partialCount * partialCount + item.Y * partialCount + item.Z)].state = 1;
+                cube[(int)(item.X * partialCount * partialCount + item.Y * partialCount + item.Z)].cubeColor = setter.getColour(125);
+            }
+
+            glControl1.Invalidate();
         }
         
         private void clearStates()
         {
-            int xx, yy, zz;
+            float xx, yy, zz;
             int partialCount = (int)Math.Pow(control.getCount(), 1.0f / 3.0f);
             for (int x = shape.startX; x < shape.x + shape.startX; x++)
                 for (int y = shape.startY; y < shape.y + shape.startY; y++)
@@ -323,12 +342,10 @@ namespace Eng_OpenTK
                         zz = z;
 
                         shapeBoudaries(ref xx, ref yy, ref zz, partialCount);
-
-
-
+                        
                         try
                         {
-                            cube[xx * partialCount * partialCount + yy * partialCount + zz].state = 0;
+                            cube[(int)(xx * partialCount * partialCount + yy * partialCount + zz)].state = 0;
                         }
                         catch(Exception e)
                         {
@@ -337,7 +354,7 @@ namespace Eng_OpenTK
                     }
             glControl1.Invalidate();
         }
-        private void shapeBoudaries(ref int x, ref int y, ref int z, int partialCount)
+        private void shapeBoudaries(ref float x, ref float y, ref float z, int partialCount)
         {
             if (x < 0)
                 x = (partialCount - Math.Abs(x % partialCount)) - 1;

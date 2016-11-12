@@ -101,6 +101,8 @@
     <Compile Include="ShapeDefinition.Designer.cs">
       <DependentUpon>ShapeDefinition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Shapes\Cuboid.cs" />
+    <Compile Include="Shapes\IShape.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -21,7 +21,6 @@ namespace Eng_OpenTK
             label1.Text = "Cube is being calculated. Please Wait...";
             this.Refresh();
             progressBar1.Maximum = size;
-
         }
         public void progres(int x, int y, int z, int partialCount)
         {

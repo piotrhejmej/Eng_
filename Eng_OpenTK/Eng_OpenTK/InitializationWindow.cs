@@ -14,7 +14,6 @@ namespace Eng_OpenTK
     public partial class InitializationWindow : Form
     {
         bool close = false;
-
         public InitializationWindow()
         {
             InitializeComponent();
@@ -28,11 +27,11 @@ namespace Eng_OpenTK
             int tempCount;
             int.TryParse(textBox1.Text, out tempCount);
 
-            if (tempCount < 100)
+            if (tempCount < 100 || checkBox1.Checked)
             {
                 passVariablesAndCloseSelf(tempCount, ref parent);
             }
-            else if (tempCount < 160)
+            else if (tempCount < 100)
             {
                 DialogResult dialogResult = MessageBox.Show("Size larger than 100 may cause problems on lower class PCs. \nAre you certain to use "+tempCount+" as the Size Value?", "Are you Sure?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
@@ -44,7 +43,6 @@ namespace Eng_OpenTK
             {
                 MessageBox.Show("Chosing size of 3D grid to be higher than 160 will cause Memory Overflow errors. \nI'm aware of this limitation and it will be corrected in future builds", "WARNING");
             }
-            
         }
         private void passVariablesAndCloseSelf(int tempCount, ref MainForm parent)
         {
@@ -65,7 +63,14 @@ namespace Eng_OpenTK
         {
             if(close == false)
                 e.Cancel = true;
-            
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+                checkBox1.Text = "Hardcore Mode = ON";
+            else
+                checkBox1.Text = "Hardcore Mode = OFF";
         }
     }
 }

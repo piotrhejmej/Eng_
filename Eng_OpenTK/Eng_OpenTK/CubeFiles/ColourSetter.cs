@@ -8,21 +8,29 @@ namespace Eng_OpenTK.Cube
 {
     class ColourSetter
     {
-        public float[] getColour(int state)
+        public float[] getColour(int r, int g, int b)
         {
-            float cR, cB, cG;
-            cR = cB = cG = (float)state / 255;
+            float cR = (float)r / 100;
+            float cG = (float)g / 100;
+            float cB = (float)b / 100;
+
             float[] stateColour = new float[]
             {
-                cR, cB, cG,
-                cR, cB, cG,
-                cR, cB, cG,
-                cR, cB, cG,
-                cR, cB, cG,
-                cR, cB, cG,
-                cR, cB, cG,
-                cR, cB, cG,
+                cR, cG, cB,
+                cR, cG, cB,
+                cR, cG, cB,
+                cR, cG, cB,
+                cR, cG, cB,
+                cR, cG, cB,
+                cR, cG, cB,
+                cR, cG, cB,
             };
+
+            return stateColour;
+        }
+        public float[] getColour(float[] color)
+        {
+            float[] stateColour = color;
 
             return stateColour;
         }

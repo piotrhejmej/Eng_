@@ -10,5 +10,7 @@ namespace Eng_OpenTK.CubeFiles
     {
         public int x, y, z;
         public int startX, startY, startZ;
+        public float[] color, prevColor;
+        public int prevState;
     }
 }

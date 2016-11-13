@@ -13,6 +13,22 @@ namespace Eng_OpenTK.Rendering
 {
     class CubeRender
     {
+        byte[] triangles = new byte[]
+            {
+                1, 0, 2, // front
+                3, 2, 0,
+                6, 4, 5, // back
+                4, 6, 7,
+                4, 7, 0, // left
+                7, 3, 0,
+                1, 2, 5, // right
+                2, 6, 5,
+                0, 1, 5, // top
+                0, 5, 4,
+                2, 3, 6, // bottom
+                3, 7, 6,
+            };
+
         public void Render(List<Cube.Cube> cube, int count)
         {
             
@@ -25,9 +41,9 @@ namespace Eng_OpenTK.Rendering
                     
                     for (int i = 0; i < (int)partialCount; i++)
                     {
-                        fixed (float* pcube = cube[i].cube, pcubeColors = cube[i].cubeColor)
+                        fixed (float* pcube = cube[i].cell, pcubeColors = cube[i].cellColor)
                         {
-                            fixed (byte* ptriangles = cube[i].triangles)
+                            fixed (byte* ptriangles = triangles)
                             {
                                 if (cube[i].state != 0)
                                 {
@@ -44,7 +60,7 @@ namespace Eng_OpenTK.Rendering
                         }
                     }
                 }
-                drawBoundaries(cube[0].cube);
+                drawBoundaries(cube[0].cell);
             }
             catch(Exception e)
             {

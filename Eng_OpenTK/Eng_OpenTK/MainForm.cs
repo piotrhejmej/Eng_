@@ -17,6 +17,7 @@ using Eng_OpenTK.Rendering;
 using Eng_OpenTK.Cube;
 using Eng_OpenTK.CubeFiles;
 using System.IO;
+using Eng_OpenTK.Shapes;
 
 namespace Eng_OpenTK
 {
@@ -24,8 +25,9 @@ namespace Eng_OpenTK
     {
         Setup setup = new Setup();
         static Controll control = new Controll();
-        Shape shape = new Shape();
-        List<List<Vector4>> shapeList = new List<List<Vector4>>();
+
+        IShape shape;
+        List<Vector4> shapeList = new List<Vector4>();
         bool loaded = false;
         bool continous = false;
 
@@ -282,48 +284,38 @@ namespace Eng_OpenTK
         }
 
         public void defShape(int x, int y, int z)
-        {
+        {/*
+            Cuboid cuboid = new Cuboid();
             ColourSetter setter = new ColourSetter();
             stateIterator++;
-            shape.x = x;
-            shape.y = y;
-            shape.z = z;
-            shape.startX = shape.startY = shape.startZ = 0;
+            cuboid.x = x;
+            cuboid.y = y;
+            cuboid.z = z;
+            cuboid.startX = cuboid.startY = cuboid.startZ = 0;
             Random rand = new Random();
             int cB = rand.Next(100);
             int cG = rand.Next(100);
             int cR = rand.Next(100);
-            shape.color = setter.getColour(cR,cG,cB);
+            cuboid.color = setter.getColour(cR,cG,cB);
+        */
+            Cyllinder cuboid = new Cyllinder();
+            ColourSetter setter = new ColourSetter();
+            stateIterator++;
+            cuboid.x = x;
+            cuboid.y = y;
+            cuboid.z = z;
+            cuboid.r = 50;
+            cuboid.startX = cuboid.startY = cuboid.startZ = 0;
+            Random rand = new Random();
+            int cB = rand.Next(100);
+            int cG = rand.Next(100);
+            int cR = rand.Next(100);
+            cuboid.color = setter.getColour(cR, cG, cB);
 
+            shape = cuboid;
             moveShape();
         }
-        private List<List<Vector4>> returnShapeCoords(Vector3 startPoint, Vector3 endPoint)
-        {
-            List<List<Vector4>> coordList = new List<List<Vector4>>();
-            List<Vector4> coordList1 = new List<Vector4>();
-            List<Vector4> colorList = new List<Vector4>();
-            Vector3 coord = new Vector3(startPoint.X,startPoint.Y,startPoint.Z);
-            int partialCount = (int)Math.Pow(control.getCount(), 1.0f / 3.0f);
-            float xx, yy, zz;
-
-            for (float x = startPoint.X; x < endPoint.X + startPoint.X; x++)
-                for (float y = startPoint.Y; y < endPoint.Y + startPoint.Y; y++)
-                    for (float z = startPoint.Z; z < endPoint.Z + startPoint.Z; z++)
-                    {
-                        xx = x;
-                        yy = y;
-                        zz = z;
-                        shapeBoudaries(ref xx, ref yy, ref zz, partialCount);
-                        int cubeCoord = (int)(xx * partialCount * partialCount + yy * partialCount + zz);
-                        coordList1.Add(new Vector4(xx, yy, zz, cube[cubeCoord].state));
-                        colorList.Add(new Vector4(cube[cubeCoord].cellColor[0], cube[cubeCoord].cellColor[1], cube[cubeCoord].cellColor[2], 0));
-                    }
-
-            coordList.Add(coordList1);
-            coordList.Add(colorList);
-
-           return coordList;
-        }
+        
         void changeStateInList(ref Vector4 item, int state)
         {
             item.W = state;
@@ -334,15 +326,15 @@ namespace Eng_OpenTK
             shapeList.Clear();
             int partialCount = (int)Math.Pow(control.getCount(), 1.0f / 3.0f);
             
-            shapeList = returnShapeCoords(new Vector3(shape.startX, shape.startY, shape.startZ), new Vector3(shape.x, shape.y, shape.z));
+            shapeList = shape.returnShapeCoords(ref cube, ref control);
             
-            foreach(Vector4 item in shapeList[0])
+            foreach(Vector4 item in shapeList)
             {
                 int cubeCoord = (int)(item.X * partialCount * partialCount + item.Y * partialCount + item.Z);
                 cube[cubeCoord].prevState = cube[cubeCoord].state;
                 cube[cubeCoord].state = stateIterator;
                 cube[cubeCoord].prevColor = cube[cubeCoord].cellColor;
-                cube[cubeCoord].cellColor = setter.getColour(shape.color);
+                cube[cubeCoord].cellColor = setter.getColour(shape.getColor());
             }
             glControl1.Invalidate();
         }
@@ -352,7 +344,7 @@ namespace Eng_OpenTK
             ColourSetter setter = new ColourSetter();
 
             int partialCount = (int)Math.Pow(control.getCount(), 1.0f / 3.0f);
-            foreach (Vector4 item in shapeList[0])
+            foreach (Vector4 item in shapeList)
             {
                 int cubeCoord = (int)(item.X * partialCount * partialCount + item.Y * partialCount + item.Z);
                 cube[cubeCoord].state = cube[cubeCoord].prevState;
@@ -361,63 +353,46 @@ namespace Eng_OpenTK
             
             glControl1.Invalidate();
         }
-        private void shapeBoudaries(ref float x, ref float y, ref float z, int partialCount)
-        {
-            if (x < 0)
-                x = (partialCount - Math.Abs(x % partialCount)) - 1;
-            else if (x >= partialCount)
-                x = (Math.Abs(x % partialCount));
-
-            if (y < 0)
-                y = (partialCount - Math.Abs(y % partialCount)) - 1;
-            else if (y >= partialCount)
-                y = (Math.Abs(y % partialCount));
-
-            if (z < 0)
-                z = (partialCount - Math.Abs(z % partialCount)) - 1;
-            else if (z >= partialCount)
-                z = (Math.Abs(z % partialCount));
-
-        }
+        
         private void button4_Click(object sender, EventArgs e)
         {
             clearStates();
-            shape.startY++;
+            shape.moveY(true);
             moveShape();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             clearStates();
-            shape.startY--;
+            shape.moveY(false);
             moveShape();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             clearStates();
-            shape.startX--;
+            shape.moveX(false);
             moveShape();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             clearStates();
-            shape.startX++;
+            shape.moveX(true);
             moveShape();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
             clearStates();
-            shape.startZ--;
+            shape.moveZ(false);
             moveShape();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             clearStates();
-            shape.startZ++;
+            shape.moveZ(true);
             moveShape();
         }
 

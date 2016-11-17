@@ -13,8 +13,7 @@ namespace Eng_OpenTK.Shapes
     {
         public int x, y, z;
         public int startX, startY, startZ;
-        public float[] color, prevColor;
-        public int prevState;
+        public float[] color;
 
         public void moveShape(ref Cube.Cube cube)
         {

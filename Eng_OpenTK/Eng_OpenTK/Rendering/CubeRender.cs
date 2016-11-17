@@ -38,7 +38,6 @@ namespace Eng_OpenTK.Rendering
                 partialCount = Math.Pow(partialCount, 3);
                 unsafe
                 {
-                    
                     for (int i = 0; i < (int)partialCount; i++)
                     {
                         fixed (float* pcube = cube[i].cell, pcubeColors = cube[i].cellColor)
@@ -52,8 +51,7 @@ namespace Eng_OpenTK.Rendering
 
                                     GL.ColorPointer(3, ColorPointerType.Float, 0, new IntPtr(pcubeColors));
                                     GL.EnableClientState(ArrayCap.ColorArray);
-
-
+                                    
                                     GL.DrawElements(BeginMode.Triangles, 36, DrawElementsType.UnsignedByte, new IntPtr(ptriangles));
                                 }
                             }
@@ -66,8 +64,7 @@ namespace Eng_OpenTK.Rendering
             {
                 Console.Write("Upps. Something went wrong\n"+e);
             }
-
-
+            
         }
         private void drawBoundaries(float[] cube)
         {

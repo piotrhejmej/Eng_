@@ -137,6 +137,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InitializationWindow";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InitializationWindow_FormClosing);
+            this.Load += new System.EventHandler(this.InitializationWindow_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);

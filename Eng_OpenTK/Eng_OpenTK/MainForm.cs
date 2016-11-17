@@ -283,36 +283,51 @@ namespace Eng_OpenTK
             shapeDef.Show(this);
         }
 
-        public void defShape(int x, int y, int z)
-        {/*
-            Cuboid cuboid = new Cuboid();
+        public void defShape(int x, int y, int z, int whichShape, int baseAxis, int r)
+        {
             ColourSetter setter = new ColourSetter();
-            stateIterator++;
-            cuboid.x = x;
-            cuboid.y = y;
-            cuboid.z = z;
-            cuboid.startX = cuboid.startY = cuboid.startZ = 0;
             Random rand = new Random();
             int cB = rand.Next(100);
             int cG = rand.Next(100);
             int cR = rand.Next(100);
-            cuboid.color = setter.getColour(cR,cG,cB);
-        */
-            Cyllinder cuboid = new Cyllinder();
-            ColourSetter setter = new ColourSetter();
             stateIterator++;
-            cuboid.x = x;
-            cuboid.y = y;
-            cuboid.z = z;
-            cuboid.r = 50;
-            cuboid.startX = cuboid.startY = cuboid.startZ = 0;
-            Random rand = new Random();
-            int cB = rand.Next(100);
-            int cG = rand.Next(100);
-            int cR = rand.Next(100);
-            cuboid.color = setter.getColour(cR, cG, cB);
 
-            shape = cuboid;
+            if (whichShape == 0)
+            {
+                Cuboid cuboid = new Cuboid();
+
+                cuboid.x = x;
+                cuboid.y = y;
+                cuboid.z = z;
+                cuboid.startX = cuboid.startY = cuboid.startZ = 0;
+                cuboid.color = setter.getColour(cR, cG, cB);
+
+                shape = cuboid;
+            }
+            if (whichShape == 1)
+            {
+                Cyllinder cyllinder = new Cyllinder();
+                cyllinder.r = r;
+                cyllinder.x = x;
+                cyllinder.y = y;
+                cyllinder.z = z;
+                cyllinder.orientation = baseAxis;
+
+                cyllinder.startX = cyllinder.startY = cyllinder.startZ = 0;
+                cyllinder.color = setter.getColour(cR, cG, cB);
+
+                shape = cyllinder;
+            }
+            if (whichShape == 2)
+            {
+                Sphere sphere = new Sphere();
+                sphere.r = r;
+
+                sphere.startX = sphere.startY = sphere.startZ = 0;
+                sphere.color = setter.getColour(cR, cG, cB);
+
+                shape = sphere;
+            }
             moveShape();
         }
         

@@ -72,5 +72,10 @@ namespace Eng_OpenTK
             else
                 checkBox1.Text = "Hardcore Mode = OFF";
         }
+
+        private void InitializationWindow_Load(object sender, EventArgs e)
+        {
+            comboBox1.SelectedIndex = 0;
+        }
     }
 }

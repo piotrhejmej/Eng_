@@ -105,6 +105,7 @@
     <Compile Include="Shapes\Cyllinder.cs" />
     <Compile Include="Shapes\IShape.cs" />
     <Compile Include="Shapes\SharedMethods.cs" />
+    <Compile Include="Shapes\Sphere.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

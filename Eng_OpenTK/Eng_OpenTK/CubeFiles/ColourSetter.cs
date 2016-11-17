@@ -8,7 +8,7 @@ namespace Eng_OpenTK.Cube
 {
     class ColourSetter
     {
-        public float[] getColour(int r, int g, int b)
+        static public float[] getColour(int r, int g, int b)
         {
             float cR = (float)r / 100;
             float cG = (float)g / 100;

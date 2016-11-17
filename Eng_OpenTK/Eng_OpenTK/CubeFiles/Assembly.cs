@@ -11,7 +11,6 @@ namespace Eng_OpenTK.Cube
     {
         public Cube buildCube(int X, int Y, int Z, int correction, float length, int count)
         {
-            ColourSetter setter = new ColourSetter();
             Cube cube = new Cube();
             cube.x = X;
             cube.y = Y;
@@ -20,7 +19,7 @@ namespace Eng_OpenTK.Cube
             float x = length * (X - correction);
             float y = length * (Y - correction);
             float z = length * (Z - correction);
-            cube.cellColor = setter.getColour(0, 0, 0);
+            cube.cellColor = ColourSetter.getColour(0, 0, 0);
             cube.state = 0;
             cube.cell = new float[]
             {

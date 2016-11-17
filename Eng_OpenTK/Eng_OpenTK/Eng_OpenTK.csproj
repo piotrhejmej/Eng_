@@ -67,6 +67,7 @@
     <Compile Include="CubeFiles\ColourSetter.cs" />
     <Compile Include="CubeFiles\Cube.cs" />
     <Compile Include="CubeFiles\Shape.cs" />
+    <Compile Include="CubeFiles\StateComputing.cs" />
     <Compile Include="InitializationWindow.cs">
       <SubType>Form</SubType>
     </Compile>

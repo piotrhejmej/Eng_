@@ -285,7 +285,6 @@ namespace Eng_OpenTK
 
         public void defShape(int x, int y, int z, int whichShape, int baseAxis, int r)
         {
-            ColourSetter setter = new ColourSetter();
             Random rand = new Random();
             int cB = rand.Next(100);
             int cG = rand.Next(100);
@@ -300,7 +299,7 @@ namespace Eng_OpenTK
                 cuboid.y = y;
                 cuboid.z = z;
                 cuboid.startX = cuboid.startY = cuboid.startZ = 0;
-                cuboid.color = setter.getColour(cR, cG, cB);
+                cuboid.color = ColourSetter.getColour(cR, cG, cB);
 
                 shape = cuboid;
             }
@@ -314,7 +313,7 @@ namespace Eng_OpenTK
                 cyllinder.orientation = baseAxis;
 
                 cyllinder.startX = cyllinder.startY = cyllinder.startZ = 0;
-                cyllinder.color = setter.getColour(cR, cG, cB);
+                cyllinder.color = ColourSetter.getColour(cR, cG, cB);
 
                 shape = cyllinder;
             }
@@ -324,7 +323,7 @@ namespace Eng_OpenTK
                 sphere.r = r;
 
                 sphere.startX = sphere.startY = sphere.startZ = 0;
-                sphere.color = setter.getColour(cR, cG, cB);
+                sphere.color = ColourSetter.getColour(cR, cG, cB);
 
                 shape = sphere;
             }
@@ -417,6 +416,14 @@ namespace Eng_OpenTK
             GL.MatrixMode(MatrixMode.Modelview);
             GL.LoadMatrix(ref modelViewMatrix);
         }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            stateIterator++;
+            StateComputing.fillSolidState(ref cube, stateIterator);
+            glControl1.Invalidate();
+        }
+
         void labelz(int mouseX, int mouseY)
         {
             label1.Text = x.ToString();

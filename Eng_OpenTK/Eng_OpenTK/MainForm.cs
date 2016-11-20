@@ -18,6 +18,7 @@ using Eng_OpenTK.Cube;
 using Eng_OpenTK.CubeFiles;
 using System.IO;
 using Eng_OpenTK.Shapes;
+using Eng_OpenTK.GrainGrowth;
 
 namespace Eng_OpenTK
 {
@@ -38,6 +39,7 @@ namespace Eng_OpenTK
         int stateIterator = 0;
 
         private static List<Cube.Cube> cube = new List<Cube.Cube>();
+        private static List<StateColorMemory> stateCollors = new List<StateColorMemory>();
 
         private static Assembly assembly = new Assembly();
         private static CubeRender cubeRender = new CubeRender();
@@ -111,9 +113,20 @@ namespace Eng_OpenTK
             setup.SetupViewport(modelViewMatrix, projectionMatrix, glControl1.Width, glControl1.Height);
 
             translate();
+            int empty = 0;
+            int notEmpty = 0;
+            foreach(Cube.Cube item in cube)
+            {
+                if (item.state == 0)
+                    empty++;
+                else
+                    notEmpty++;
+            }
+            if (empty == 0 && notEmpty != 0)
+                control.setFull();
 
             if (cube.Any())
-                cubeRender.Render(cube, control.getCount());
+                cubeRender.Render(cube, control);
 
             setup.OrthoView(projectionMatrix, glControl1.Width, glControl1.Height);
 
@@ -289,6 +302,7 @@ namespace Eng_OpenTK
             int cB = rand.Next(100);
             int cG = rand.Next(100);
             int cR = rand.Next(100);
+            StateColorMemory tempColor = new StateColorMemory();
             stateIterator++;
 
             if (whichShape == 0)
@@ -327,7 +341,14 @@ namespace Eng_OpenTK
 
                 shape = sphere;
             }
+            tempColor.state = stateIterator;
+            tempColor.cellColor = shape.getColor();
+            stateCollors.Add(tempColor);
             moveShape();
+            foreach(StateColorMemory item in stateCollors)
+            {
+                Console.WriteLine("{0}: {1}", item.state, item.cellColor);
+            }
         }
         
         void changeStateInList(ref Vector4 item, int state)
@@ -421,6 +442,14 @@ namespace Eng_OpenTK
         {
             stateIterator++;
             StateComputing.fillSolidState(ref cube, stateIterator);
+            glControl1.Invalidate();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            SeedGrowth grower = new SeedGrowth();
+            grower.grainGrowth(ref cube, stateCollors, control);
+            Console.WriteLine("IM OUT OF GROWTH");
             glControl1.Invalidate();
         }
 

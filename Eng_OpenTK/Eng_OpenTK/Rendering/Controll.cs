@@ -14,7 +14,7 @@ namespace Eng_OpenTK.Rendering
     class Controll
     {
         private int count { get; set; }
-
+        private bool full = false;
         public void setVariables(int Count)
         {
             count = Count;
@@ -22,6 +22,18 @@ namespace Eng_OpenTK.Rendering
         public int getCount()
         {
             return count;
+        }
+        public bool isFull()
+        {
+            return full;
+        }
+        public void setFull()
+        {
+            full = true;
+        }
+        public void setEmpty()
+        {
+            full = false;
         }
         public void setCount(int Count)
         {

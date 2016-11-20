@@ -29,34 +29,47 @@ namespace Eng_OpenTK.Rendering
                 3, 7, 6,
             };
 
-        public void Render(List<Cube.Cube> cube, int count)
+        public void Render(List<Cube.Cube> cube, Controll control)
         {
-            
+            int partialCount = (int)Math.Pow(control.getCount(), 1.0f / 3.0f);
+            bool isFull = control.isFull();
             try
             {
-                double partialCount = Math.Pow(count, (1.0f / 3.0f));
-                partialCount = Math.Pow(partialCount, 3);
                 unsafe
                 {
-                    for (int i = 0; i < (int)partialCount; i++)
-                    {
-                        fixed (float* pcube = cube[i].cell, pcubeColors = cube[i].cellColor)
-                        {
-                            fixed (byte* ptriangles = triangles)
+                    for (int x = 0; x < partialCount; x++)
+                        for (int y = 0; y < partialCount; y++)
+                            for (int z = 0; z < partialCount; z++)
                             {
-                                if (cube[i].state != 0)
+                                int cubeCoord = (int)(x * partialCount * partialCount + y * partialCount + z);
+                                fixed (float* pcube = cube[cubeCoord].cell, pcubeColors = cube[cubeCoord].cellColor)
                                 {
-                                    GL.VertexPointer(3, VertexPointerType.Float, 0, new IntPtr(pcube));
-                                    GL.EnableClientState(ArrayCap.VertexArray);
+                                    fixed (byte* ptriangles = triangles)
+                                    {
+                                        if (cube[cubeCoord].state != 0 && !isFull)
+                                        {
+                                            GL.VertexPointer(3, VertexPointerType.Float, 0, new IntPtr(pcube));
+                                            GL.EnableClientState(ArrayCap.VertexArray);
 
-                                    GL.ColorPointer(3, ColorPointerType.Float, 0, new IntPtr(pcubeColors));
-                                    GL.EnableClientState(ArrayCap.ColorArray);
-                                    
-                                    GL.DrawElements(BeginMode.Triangles, 36, DrawElementsType.UnsignedByte, new IntPtr(ptriangles));
+                                            GL.ColorPointer(3, ColorPointerType.Float, 0, new IntPtr(pcubeColors));
+                                            GL.EnableClientState(ArrayCap.ColorArray);
+
+                                            GL.DrawElements(BeginMode.Triangles, 36, DrawElementsType.UnsignedByte, new IntPtr(ptriangles));
+                                        }
+                                        if(isFull && (x == 0 || x == partialCount-1 || y == 0 || y == partialCount-1 || z == 0 || z == partialCount-1))
+                                        {
+                                            GL.VertexPointer(3, VertexPointerType.Float, 0, new IntPtr(pcube));
+                                            GL.EnableClientState(ArrayCap.VertexArray);
+
+                                            GL.ColorPointer(3, ColorPointerType.Float, 0, new IntPtr(pcubeColors));
+                                            GL.EnableClientState(ArrayCap.ColorArray);
+
+                                            GL.DrawElements(BeginMode.Triangles, 36, DrawElementsType.UnsignedByte, new IntPtr(ptriangles));
+                                        }
+                                    }
                                 }
-                            }
-                        }
-                    }
+
+                            }                    
                 }
                 drawBoundaries(cube[0].cell);
             }

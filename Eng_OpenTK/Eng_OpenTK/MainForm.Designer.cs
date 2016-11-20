@@ -43,6 +43,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button13 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -67,7 +68,7 @@
             this.continousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -208,6 +209,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.panel1.Controls.Add(this.button14);
             this.panel1.Controls.Add(this.button13);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button12);
@@ -228,6 +230,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(222, 592);
             this.panel1.TabIndex = 14;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(13, 439);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(192, 25);
+            this.button13.TabIndex = 19;
+            this.button13.Text = "Fill empty cells with one state";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button2
             // 
@@ -447,15 +459,15 @@
             // 
             this.toolTip1.IsBalloon = true;
             // 
-            // button13
+            // button14
             // 
-            this.button13.Location = new System.Drawing.Point(13, 439);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(192, 25);
-            this.button13.TabIndex = 19;
-            this.button13.Text = "Fill empty cells with one state";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.button14.Location = new System.Drawing.Point(13, 470);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(192, 25);
+            this.button14.TabIndex = 20;
+            this.button14.Text = "Grow";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // MainForm
             // 
@@ -524,5 +536,6 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button14;
     }
 }

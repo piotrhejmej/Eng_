@@ -14,7 +14,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="OpenGL">
@@ -65,10 +68,15 @@
   <ItemGroup>
     <Compile Include="CubeFiles\Assembly.cs" />
     <Compile Include="CubeFiles\ColourSetter.cs" />
-    <Compile Include="CubeFiles\Cube.cs" />
-    <Compile Include="CubeFiles\Shape.cs" />
+    <Compile Include="CubeFiles\Cell.cs" />
     <Compile Include="CubeFiles\StateColorMemory.cs" />
     <Compile Include="CubeFiles\StateComputing.cs" />
+    <Compile Include="RandomShapeGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RandomShapeGenerator.Designer.cs">
+      <DependentUpon>RandomShapeGenerator.cs</DependentUpon>
+    </Compile>
     <Compile Include="GrainGrowth\SeedGrowth.cs" />
     <Compile Include="InitializationWindow.cs">
       <SubType>Form</SubType>
@@ -82,11 +90,11 @@
     <Compile Include="Loader.Designer.cs">
       <DependentUpon>Loader.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,8 +103,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Rendering\Controll.cs" />
-    <Compile Include="Rendering\CubeRender.cs" />
+    <Compile Include="Rendering\ValuesContainer.cs" />
+    <Compile Include="Rendering\CellRender.cs" />
     <Compile Include="Rendering\Setup.cs" />
     <Compile Include="ShapeDefinition.cs">
       <SubType>Form</SubType>
@@ -106,12 +114,14 @@
     </Compile>
     <Compile Include="Shapes\Cuboid.cs" />
     <Compile Include="Shapes\Cyllinder.cs" />
+    <Compile Include="Shapes\DefShapes.cs" />
     <Compile Include="Shapes\IShape.cs" />
     <Compile Include="Shapes\SharedMethods.cs" />
     <Compile Include="Shapes\Sphere.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -124,12 +134,15 @@
     <EmbeddedResource Include="Loader.resx">
       <DependentUpon>Loader.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RandomShapeGenerator.resx">
+      <DependentUpon>RandomShapeGenerator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ShapeDefinition.resx">
       <DependentUpon>ShapeDefinition.cs</DependentUpon>

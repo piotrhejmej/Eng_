@@ -10,11 +10,12 @@ namespace Eng_OpenTK.Shapes
 {
     interface IShape
     {
-        void moveShape(ref Cube.Cube cube);
-        List<Vector4> returnShapeCoords(ref List<Cube.Cube> cube, ref Controll controls);
+        void moveShape(ref Cube.Cell cube);
+        List<Vector4> returnShapeCoords(ref List<Cube.Cell> cube, ref ValuesContainer controls);
         float[] getColor();
         void moveX(bool direction);
         void moveY(bool direction);
         void moveZ(bool direction);
+        void setPos(int x, int y, int z);
     }
 }

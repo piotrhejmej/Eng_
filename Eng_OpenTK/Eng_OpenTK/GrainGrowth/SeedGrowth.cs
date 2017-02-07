@@ -1,5 +1,6 @@
 ﻿using Eng_OpenTK.CubeFiles;
 using Eng_OpenTK.Rendering;
+using OpenTK;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,80 +12,80 @@ namespace Eng_OpenTK.GrainGrowth
 {
     class SeedGrowth
     {
-        public void grainGrowth(ref List<Cube.Cube> cells, List<StateColorMemory> collors, Controll control)
+        static void cloneLists(List<Cube.Cell> input, out List<Cube.Cell> output)
         {
-            List<Cube.Cube> tempCells = new List<Cube.Cube>();
-            Stopwatch stopWatch = new Stopwatch();
-            double watchStart, watchStop, watchElapsed;
-            
-            foreach(Cube.Cube item in cells)
+            List<Cube.Cell> tempList = new List<Cube.Cell>();
+
+            foreach (Cube.Cell item in input)
             {
-                Cube.Cube temp = new Cube.Cube();
+                Cube.Cell tempItem = new Cube.Cell();
 
-                temp.state = item.state;
-                temp.cellColor = item.cellColor;
-                temp.cell = item.cell;
-                temp.x = item.x;
-                temp.y = item.y;
-                temp.z = item.z;
-                temp.prevColor = item.prevColor;
-                temp.prevState = item.prevState;
+                tempItem.state = item.state;
+                tempItem.cellColor = item.cellColor;
+                tempItem.cell = item.cell;
+                tempItem.x = item.x;
+                tempItem.y = item.y;
+                tempItem.z = item.z;
+                tempItem.prevColor = item.prevColor;
+                tempItem.prevState = item.prevState;
 
-                tempCells.Add(temp);
+                tempList.Add(tempItem);
+            }
+            output = tempList;
+        }
+        static bool compareLists(List<Cube.Cell> a, List<Cube.Cell> b, ValuesContainer control)
+        {
+            int diff = 0;
+            for (int o = 0; o < control.getCount(); o++)
+            {
+                if (a[o].state != b[o].state)
+                    diff++;
             }
 
+            if (a != b && diff == 0)
+                return true;
+            else
+                return false;
+
+        }
+        public void grainGrowth(ref List<Cube.Cell> cells, List<StateColorMemory> collors, ValuesContainer control, MainWindow parent)
+        {
+            List<Cube.Cell> tempCells = new List<Cube.Cell>();
+            Stopwatch stopWatch = new Stopwatch();
+            
+            cloneLists(cells, out tempCells);
+
             int partialCount = (int)Math.Pow(control.getCount(), 1.0f / 3.0f);
-            tempCells[0].state = 50;
             stopWatch.Start();
             int it = 0;
+
             while(true)
             {
                 stopWatch.Reset();
                 stopWatch.Start();
-                it++;
-                for (int x = 0; x < partialCount; x++)
-                    for (int y = 0; y < partialCount; y++)
-                        for (int z = 0; z < partialCount; z++)
-                        {
-                            int cubeCoord = (int)(x * partialCount * partialCount + y * partialCount + z);
-                            if (tempCells[cubeCoord].state == 0)
-                                neighbourhood(ref cells, ref tempCells, collors, control, x, y, z);
-                        }
 
-                int diff = 0;
-                for(int o = 0; o < control.getCount(); o++)
+                foreach (Cube.Cell item in tempCells)
                 {
-                    if (cells[o].state != tempCells[o].state)
-                        diff++;
+                    if (item.state == 0)
+                        neighbourhood(ref cells, ref tempCells, collors, control, item.x, item.y, item.z);
                 }
+                               
 
-                if (cells == tempCells || diff == 0)
+                if ((compareLists(cells, tempCells, control)))
+                {
                     break;
+                }
 
                 cells.Clear();
-
-                foreach (Cube.Cube item in tempCells)
-                {
-                    Cube.Cube temp = new Cube.Cube();
-
-                    temp.state = item.state;
-                    temp.cellColor = item.cellColor;
-                    temp.cell = item.cell;
-                    temp.x = item.x;
-                    temp.y = item.y;
-                    temp.z = item.z;
-                    temp.prevColor = item.prevColor;
-                    temp.prevState = item.prevState;
-
-                    cells.Add(temp);
-                }
+                cloneLists(tempCells, out cells);
 
                 stopWatch.Stop();
-                Console.WriteLine("still in the loop :) {0}: {1}", it, stopWatch.ElapsedMilliseconds);
-            }     
+                Console.WriteLine("Grain Growth iteration {0}: elapsed time: {1}", it++, stopWatch.ElapsedMilliseconds);
+                parent.glControl1.Invalidate();
+            }   
         }
         
-        void neighbourhood(ref List<Cube.Cube> cells, ref List<Cube.Cube> tempCells, List<StateColorMemory> collors, Controll control, int xx, int yy, int zz)
+        void neighbourhood(ref List<Cube.Cell> cells, ref List<Cube.Cell> tempCells, List<StateColorMemory> collors, ValuesContainer control, int xx, int yy, int zz)
         {
             int partialCount = (int)Math.Pow(control.getCount(), 1.0f / 3.0f);
 
@@ -92,33 +93,6 @@ namespace Eng_OpenTK.GrainGrowth
                 for (int y = yy - 1; y <= yy + 1; y++)
                     for (int z = zz - 1; z <= zz + 1; z++)
                     {
-                        
-
-                        /*
-                            if (x == (xx - 1))
-                            {
-                                if ((y == (yy - 1)) || (y == (yy + 1)))
-                                {
-                                    continue;
-                                }
-                                if((z == (zz-1)) && (z == (zz +1)))
-                                {
-                                    continue;
-                                }
-                            }
-                            if (x == (xx + 1))
-                            {
-                                if ((y == (yy - 1)) || (y == (yy + 1)))
-                                {
-                                    continue;
-                                }
-                                if ((z == (zz - 1)) && (z == (zz + 1)))
-                                {
-                                    continue;
-                                }
-                        }
-                        */
-
                         int tempX = x;
                         int tempY = y;
                         int tempZ = z;
@@ -138,31 +112,33 @@ namespace Eng_OpenTK.GrainGrowth
                         else if (z >= partialCount)
                             tempZ = (Math.Abs(z % partialCount));
 
-                        
 
                         int cubeCoord = (int)(tempX * partialCount * partialCount + tempY * partialCount + tempZ);
-                        int temp = neighbourCount(ref cells, control, tempX, tempY, tempZ);
 
-                        tempCells[cubeCoord].state = temp;
-                        
-
-                        foreach(StateColorMemory item in collors)
+                        if (tempCells[cubeCoord].state == 0)
                         {
-                            if (item.state == temp)
-                                tempCells[cubeCoord].cellColor = item.cellColor;
-                        }
+                            int temp = neighbourCount(ref cells, control, tempX, tempY, tempZ);
 
+                            tempCells[cubeCoord].state = temp;
+
+
+                            foreach (StateColorMemory item in collors)
+                            {
+                                if (item.state == temp)
+                                    tempCells[cubeCoord].cellColor = item.cellColor;
+                            }
+                        }
                     }
 
 
 
         }
 
-        int neighbourCount(ref List<Cube.Cube> cells, Controll control, int xx, int yy, int zz)
+        int neighbourCount(ref List<Cube.Cell> cells, ValuesContainer control, int xx, int yy, int zz)
         {
             int resultState = 0 ;
             int partialCount = (int)Math.Pow(control.getCount(), 1.0f / 3.0f);
-            int[] counter = new int[partialCount];
+            int[] counter = new int[500];
             
 
             for (int i = xx - 1; i <= xx + 1; i++)
@@ -197,13 +173,12 @@ namespace Eng_OpenTK.GrainGrowth
                             tempZ = (Math.Abs(k % partialCount));
 
                         int cubeCoord = (tempX * partialCount * partialCount + tempY * partialCount + tempZ);
-                        if (cells[cubeCoord].state != 0)
+                        if (cells[cubeCoord].state > 0)
                         {
                             counter[cells[cubeCoord].state]++;
                         }
                     }
                 }
-
             }
             int max = counter[0];
             for (int k = 1; k < partialCount; k++)
@@ -222,7 +197,6 @@ namespace Eng_OpenTK.GrainGrowth
                     ileMax++;
                 }
             }
-            
             if (ileMax != 1)
             {
                 int[] temp1 = new int[ileMax];
@@ -240,8 +214,6 @@ namespace Eng_OpenTK.GrainGrowth
                     resultState = temp1[rand.Next(ileMax)];
                 }
             }
-            
-
             return resultState;
         }
 

@@ -77,7 +77,7 @@ namespace Eng_OpenTK
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainForm parent = (MainForm)this.Owner;
+            MainWindow parent = (MainWindow)this.Owner;
             int size = parent.getPartialCount();
             int x = 0, y = 0, z = 0, r = 0;
             int length = 0;
@@ -128,7 +128,7 @@ namespace Eng_OpenTK
                 dialogResult = MessageBox.Show("Shape size must fit within grid size. \nYou have exceded those boundaries!");
 
         }
-        void passValuesAndKillSelf(int x, int y, int z, int r, ref MainForm parent)
+        void passValuesAndKillSelf(int x, int y, int z, int r, ref MainWindow parent)
         {
             parent.defShape(x, y, z, (int)comboBox1.SelectedIndex, (int)comboBox3.SelectedIndex, r);
             Console.WriteLine("Selected index: "+comboBox1.SelectedIndex);

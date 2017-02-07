@@ -15,15 +15,15 @@ namespace Eng_OpenTK.Shapes
         public int startX, startY, startZ;
         public float[] color;
 
-        public void moveShape(ref Cube.Cube cube)
+        public void moveShape(ref Cube.Cell cube)
         {
 
         }
 
-        public List<Vector4> returnShapeCoords(ref List<Cube.Cube> cube, ref Controll controls)
+        public List<Vector4> returnShapeCoords(ref List<Cube.Cell> cube, ref ValuesContainer controls)
         {
 
-            Controll control = controls;
+            ValuesContainer control = controls;
             SharedMethods shared = new SharedMethods();
             List<Vector4> coordList = new List<Vector4>();
             Vector3 coord = new Vector3(startX, startY, startZ);
@@ -73,6 +73,12 @@ namespace Eng_OpenTK.Shapes
                 startZ++;
             else
                 startZ--;
+        }
+        public void setPos(int x, int y, int z)
+        {
+            startX = x;
+            startY = y;
+            startZ = z;
         }
     }
 }

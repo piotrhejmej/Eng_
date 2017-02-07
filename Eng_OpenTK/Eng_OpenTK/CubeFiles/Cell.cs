@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eng_OpenTK.CubeFiles
+namespace Eng_OpenTK.Cube
 {
-    class Shape
+    public class Cell
     {
         public int x, y, z;
-        public int startX, startY, startZ;
-        public float[] color, prevColor;
-        public int prevState;
+        public float[] cell, cellColor, prevColor;
+        public int state, prevState;
     }
 }

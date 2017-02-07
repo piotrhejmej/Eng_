@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="11320908-04fd-41d8-9d32-0489a1fe6b8d"
+  name="OpenTK"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="33d9ef84-dab3-4d0d-b1fd-d5732c1333fc"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DOpenTK"
+      tag="ViewCode" />
+  </referencesInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="e686e61c-f885-41db-bf01-e65da186ec2c">
+      <profileInstance
+        Id="567f81a1-4141-4794-a576-64fac2dd420c"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="9e87c4e0-59c8-460d-a6b5-47d1f3564b56"
+        name="Vector4"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="7bf9c806-5dc9-4315-b4b3-46db06d1d4b0"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2Fpackages%2FOpenTK.1.1.2349.61993%2Flib%2FNET40%2FOpenTK.dll Namespace%3DOpenTK Type%3DVector4"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="7a8809d6-8a4a-46f2-9b79-888ba4e6cbb8"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0bab230e-9c50-4338-8bb6-83b0c3299715">
+                <propertyInstance
+                  Id="faf2e179-58d0-4409-9d4e-33dd332606d2"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="51ae5aea-11be-4615-8b0f-3fcb0f3cf5b1">
+                <propertyInstance
+                  Id="466e736f-f7b2-40a3-9ce7-ab6a2a907176"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3b706664-37f9-4941-8ef3-701401d79d57">
+                <propertyInstance
+                  Id="04e5ebcf-e24e-45e8-ac2d-60edf15a803f"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f03f98f7-4759-4425-82c6-3209382bd152">
+                <propertyInstance
+                  Id="9468eab9-d1cd-4c40-b31c-821c226abf11"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="077a1055-90c8-4e8a-8281-4208c0d136c3"
+        name="Matrix4"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="f59834ee-265f-48a8-8a98-1a17f0f2fe9e"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2Fpackages%2FOpenTK.1.1.2349.61993%2Flib%2FNET40%2FOpenTK.dll Namespace%3DOpenTK Type%3DMatrix4"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="ad985bd6-c1a7-41ad-b344-b3c38758f13f"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0493f906-e17e-4f4b-bfee-0e63cb850d0a">
+                <propertyInstance
+                  Id="6654ae90-7433-4204-81c8-569b5a1c2896"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="79071dcc-fff6-48ad-9892-52ced8203f58">
+                <propertyInstance
+                  Id="6b3c86c5-799b-4a66-9ced-9d39d121c922"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="dbd4fcf6-5d8b-428a-971a-c37980b2a997">
+                <propertyInstance
+                  Id="e9582ae8-c039-4ce0-84ab-c8d87b1479d5"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="95ab3889-ab3e-4ac2-a8a2-2449c4c93020">
+                <propertyInstance
+                  Id="2be3663d-90c1-45c3-b93a-29e0b463061c"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1d0539a2-1161-494c-935c-0b2cfc8a4d41"
+        name="Vector3"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="54bfb6c6-2f41-4543-81f0-15c8618eee5b"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2Fpackages%2FOpenTK.1.1.2349.61993%2Flib%2FNET40%2FOpenTK.dll Namespace%3DOpenTK Type%3DVector3"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="a06741db-2f79-4622-a8a4-e79874837b66"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ac62e846-b728-4561-8bd7-709c57e68adf">
+                <propertyInstance
+                  Id="45980e52-e3ee-42f8-af9f-306c18cf391a"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c8bc2b6c-9930-4690-b23b-18532e3d04b8">
+                <propertyInstance
+                  Id="6daa668f-ba56-4d1c-9329-61e564efa00b"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0801f9dc-10df-4414-8e70-89a9f612c3c8">
+                <propertyInstance
+                  Id="2d433ad3-b414-49cb-be10-587dd44996df"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="aea6a716-5b32-45cd-ad24-0766163b83f4">
+                <propertyInstance
+                  Id="f5396d58-d941-4f0a-b7b9-9eafad7d2706"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0c7380bf-3cf1-4376-985b-f46ba8b87db5"
+        name="GLControl"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="76607aa9-3889-48b7-9c52-74a2aba11293"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2Fpackages%2FOpenTK.GLControl.1.1.2349.61993%2Flib%2FNET40%2FOpenTK.GLControl.dll Namespace%3DOpenTK Type%3DGLControl"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="1bca591b-bf6a-49f5-a74a-c00d92c6badf"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5aec6bc4-2e3a-41f7-b969-4f40adbe9a74">
+                <propertyInstance
+                  Id="c3919b38-2ba9-457a-8ff1-32ceea63d881"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8d227527-5c1f-41e6-81fb-ca5cfe10edcc">
+                <propertyInstance
+                  Id="bde2df28-ff7b-4b50-8d2f-2ff0efcd407d"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f5465a50-a8dd-459a-8546-3a1762903570">
+                <propertyInstance
+                  Id="5af49c80-0659-40d2-9fa3-83a1474eee10"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6676503a-ddc8-439d-9432-6582787a105d">
+                <propertyInstance
+                  Id="2867cba6-3e98-4536-be83-71b5d13cd3a8"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1fc2d3c6-f1c7-431a-91a4-42311635db14">
+                <propertyInstance
+                  Id="074e04f9-d504-4c97-b359-c6a21cf4fdf8"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

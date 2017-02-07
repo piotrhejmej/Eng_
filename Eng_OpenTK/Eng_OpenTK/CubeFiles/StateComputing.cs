@@ -9,14 +9,14 @@ namespace Eng_OpenTK.CubeFiles
 {
     static class StateComputing
     {
-        public static void fillSolidState(ref List<Cube.Cube> cells, int stateIterator)
+        public static void fillSolidState(ref List<Cube.Cell> cells, int stateIterator)
         {
             Random rand = new Random();
             int cB = rand.Next(100);
             int cG = rand.Next(100);
             int cR = rand.Next(100);
 
-            foreach (Cube.Cube item in cells)
+            foreach (Cube.Cell item in cells)
             {
                 if (item.state == 0)
                 {

@@ -20,7 +20,7 @@ namespace Eng_OpenTK.Shapes
             return color;
         }
 
-        public void moveShape(ref Cube.Cube cube)
+        public void moveShape(ref Cube.Cell cube)
         {
             throw new NotImplementedException();
         }
@@ -49,9 +49,9 @@ namespace Eng_OpenTK.Shapes
                 startZ--;
         }
 
-        public List<Vector4> returnShapeCoords(ref List<Cube.Cube> cube, ref Controll controls)
+        public List<Vector4> returnShapeCoords(ref List<Cube.Cell> cube, ref ValuesContainer controls)
         {
-            Controll control = controls;
+            ValuesContainer control = controls;
             SharedMethods shared = new SharedMethods();
             List<Vector4> coordList = new List<Vector4>();
             
@@ -78,6 +78,12 @@ namespace Eng_OpenTK.Shapes
                     }
 
             return coordList;
+        }
+        public void setPos(int x, int y, int z)
+        {
+            startX = x;
+            startY = y;
+            startZ = z;
         }
     }
 }

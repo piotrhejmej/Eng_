@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Eng_OpenTK.Cube.Assembly" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>CubeFiles\Assembly.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.Cube.Cell" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEQAAAAAQAAAAAAAAEAEAABgAQAAAAA=</HashCode>
+      <FileName>CubeFiles\Cell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.Cube.ColourSetter" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>CubeFiles\ColourSetter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.CubeFiles.StateColorMemory" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>CubeFiles\StateColorMemory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.CubeFiles.StateComputing" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CubeFiles\StateComputing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.GrainGrowth.SeedGrowth" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAgAAAAAAAAAAAAAAAAAAAAAAACAAAIQAAAAAAA=</HashCode>
+      <FileName>GrainGrowth\SeedGrowth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.InitializationWindow" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACAAAAEAAADAAAACAAAYAAAAEOAAAQACAAA=</HashCode>
+      <FileName>InitializationWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.Loader" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQQACAAABgAAACAAAACAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Loader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.MainWindow" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>3zQIAASBECAkEVkBDKCAgJfSwOw7ADei03F/YyEJBDA=</HashCode>
+      <FileName>MainWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.Program" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.RandomShapeGenerator" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAACAAAACAAAYAAAAEAAAAAEAAAI=</HashCode>
+      <FileName>RandomShapeGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.ShapeDefinition" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAASAgABAQAACAAABCIAAIAAAAEEgAAEAAAAA=</HashCode>
+      <FileName>ShapeDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.Properties.Resources" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.Rendering.CellRender" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABCAAAAAAAA=</HashCode>
+      <FileName>Rendering\CellRender.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.Rendering.Setup" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAQAAAQAAAAAAgAAAAAA=</HashCode>
+      <FileName>Rendering\Setup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.Rendering.ValuesContainer" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACACIAAAAwQABAAWAAAAAAAGAAAAAgBgSWAHAgA=</HashCode>
+      <FileName>Rendering\ValuesContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.Shapes.Cuboid" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgCAACAAAAAgABAAAAAAAAAAAACCAABggQAAAAI=</HashCode>
+      <FileName>Shapes\Cuboid.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Eng_OpenTK.Shapes.Cyllinder" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAABAgCAACAAAAAgABAAAAAAAAAAAACCAABhgQAAAAI=</HashCode>
+      <FileName>Shapes\Cyllinder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Eng_OpenTK.Shapes.DefShapes" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAACAAAAAAAAAAAQAAAAAAAAAAAAAwAAAQAQAAQA=</HashCode>
+      <FileName>Shapes\DefShapes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.Shapes.SharedMethods" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shapes\SharedMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eng_OpenTK.Shapes.Sphere" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgCAACAAAAAgABAAAAAAAAAAAACCAAABgAAAAAI=</HashCode>
+      <FileName>Shapes\Sphere.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Eng_OpenTK.Shapes.IShape" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgCAACAAAAAAABAAAAAAAAAAAAACAAAAgAAAAAI=</HashCode>
+      <FileName>Shapes\IShape.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

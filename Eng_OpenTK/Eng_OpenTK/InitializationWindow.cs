@@ -21,35 +21,20 @@ namespace Eng_OpenTK
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MainForm parent = (MainForm)this.Owner;
+            MainWindow parent = (MainWindow)this.Owner;
             parent.ShowInTaskbar = false;
 
-            int tempCount;
-            int.TryParse(textBox1.Text, out tempCount);
-
-            if (tempCount < 100 || checkBox1.Checked)
-            {
-                passVariablesAndCloseSelf(tempCount, ref parent);
-            }
-            else if (tempCount < 100)
-            {
-                DialogResult dialogResult = MessageBox.Show("Size larger than 100 may cause problems on lower class PCs. \nAre you certain to use "+tempCount+" as the Size Value?", "Are you Sure?", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    passVariablesAndCloseSelf(tempCount, ref parent);
-                }
-            }
-            else if(tempCount>=160)
-            {
-                MessageBox.Show("Chosing size of 3D grid to be higher than 160 will cause Memory Overflow errors. \nI'm aware of this limitation and it will be corrected in future builds", "WARNING");
-            }
+            int axisConcetration;
+            int.TryParse(textBox1.Text, out axisConcetration);
+            
+                passVariablesAndCloseSelf(axisConcetration, ref parent);
+            
         }
-        private void passVariablesAndCloseSelf(int tempCount, ref MainForm parent)
+        private void passVariablesAndCloseSelf(int axisConcetration, ref MainWindow parent)
         {
-            parent.setVars(tempCount);
+            parent.setVars(axisConcetration);
             this.Close();
             parent.Opacity = 100;
-            parent.ShowInTaskbar = true;
             this.Dispose();
         }
 
@@ -67,15 +52,12 @@ namespace Eng_OpenTK
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
-                checkBox1.Text = "Hardcore Mode = ON";
-            else
-                checkBox1.Text = "Hardcore Mode = OFF";
+           
         }
 
         private void InitializationWindow_Load(object sender, EventArgs e)
         {
-            comboBox1.SelectedIndex = 0;
+            
         }
     }
 }

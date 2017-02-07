@@ -1,0 +1,1515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="349bc460-55d3-4abb-a531-b4b2f5398823"
+  name="Cube"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="0599d61d-0cc0-42f7-917e-e343c91aac5e"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DEng_OpenTK.Cube"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="4e438bc6-2b1f-4917-854c-660132439ba1"
+        name="Cell"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="8b8a1373-98de-4804-a07b-2cc19d5370a9"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DCell"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="f2ad2f1f-df5b-4e0c-a942-b6d2198cda73"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a8211bef-a91f-4623-bb6c-6df690ff4830">
+                <propertyInstance
+                  Id="2cfea9db-56c5-4a79-b477-8ee5362e4e5c"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0861097e-308b-4115-8720-320dc9a38fe9">
+                <propertyInstance
+                  Id="78a7b004-7903-46cb-a7f1-208661a16e43"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2bfc64cb-c2c5-47b9-90d6-5623f5065b5f">
+                <propertyInstance
+                  Id="b6495985-5cc0-4677-b4ae-fac41868a647"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e90bb092-2cd9-441a-a2b1-ac9c75985cc8">
+                <propertyInstance
+                  Id="8634e9c2-ee4b-4f1f-8957-3e4f34caa4c8"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fb973150-a540-403c-9a35-7233bd73b487">
+                <propertyInstance
+                  Id="10eb293a-4957-44ce-a1b6-93322f7c0e02"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="7b7e46ed-f4cb-4ee8-9bfe-2900e847922c"
+            name="x"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="717b1c31-d598-4979-9205-cf6ae5665b52"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DCell Member%3Dx"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a92a7944-76af-4352-83dc-a81476a4c6c2"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="139c9319-160e-4975-8419-8a4c2a5984ef">
+                    <propertyInstance
+                      Id="5c48daae-40df-4d0a-9747-935505854af8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4f261f00-54cc-481d-899f-0b54a4dffd3c">
+                    <propertyInstance
+                      Id="65cb9141-5759-4654-a3f1-e6ba6e0c6ed6"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ceacde2-0a8c-4b3b-943d-d6f28d07ff17">
+                    <propertyInstance
+                      Id="0a18892d-39ad-4a1a-844c-65e150cd09a8"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bbdb2740-c30a-456e-8f36-d5a0519703cd">
+                    <propertyInstance
+                      Id="e2c8ff59-38cc-4605-ad9c-21c928e42275"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="deb667fe-0263-41be-8427-fd73c9527412">
+                    <propertyInstance
+                      Id="623b7551-e77b-4fb6-844f-0605f42ab31b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="9510907d-4411-47e0-9216-d4df74e5b7f3"
+            name="y"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="cdb453d8-3063-4d02-b499-8208005ceea5"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DCell Member%3Dy"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="237bd2f4-555d-46de-a4d8-8ca2ddb7d47f"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="11fa2bee-508e-4db2-bc49-e9bd2a50d6ad">
+                    <propertyInstance
+                      Id="cea6c0ef-cf3a-48bb-be2f-3b724d70325c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="88a31736-c683-43fe-93c8-65f4712cb091">
+                    <propertyInstance
+                      Id="8b9e8f7e-dc75-4550-aee1-35eed99613b2"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="def69797-d366-4f09-9834-36d9f245b03e">
+                    <propertyInstance
+                      Id="d999dcf1-3200-4595-8ea4-dd602c99fc82"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d25d7367-d87a-485c-978e-8b503514ac50">
+                    <propertyInstance
+                      Id="f451ed20-b825-441c-8b0c-73f238688266"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="64ed8b94-58c3-4bd4-8136-c9f574713e70">
+                    <propertyInstance
+                      Id="35bf6098-902d-40d8-935f-106f6438f6a1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="036f1887-9cec-41fb-90b8-4c0a97d5ca94"
+            name="z"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="10cf3048-ccaa-4edc-b77b-433c6d7ff75e"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DCell Member%3Dz"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="edeab558-81af-4af3-9551-246c1e1ba985"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d382e415-0a6c-44dd-92c4-701986f5b054">
+                    <propertyInstance
+                      Id="0820478c-4a0e-4a75-a366-abd26baf36de"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f0f1279c-ad20-4b3e-811c-76d000bc4f09">
+                    <propertyInstance
+                      Id="2a4bfc28-841f-42a2-8829-98b1c7d15149"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="09072dbd-abe0-4a2a-b492-c1a6535dd163">
+                    <propertyInstance
+                      Id="701beac9-2633-479b-8d32-5bcedbff82ab"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d3e365f8-7846-43ee-b4c6-231db68e4873">
+                    <propertyInstance
+                      Id="c92f55bd-e947-4c67-8354-d927258fc10d"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="066888f3-a35c-46ab-b696-899c499ccca6">
+                    <propertyInstance
+                      Id="f8ca7778-48e8-4f4e-8ddd-7d817f3b652b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="fec2d0d6-9159-47d2-b4ed-882438590f86"
+            name="cellColor"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isOrdered="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="472ce0d0-4629-42de-9f7c-12cf73a882da"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DCell Member%3DcellColor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d45a70e8-9138-424f-a3de-a96a47c16f4a"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bc503e36-5356-4efa-be7a-254626d7eb5c">
+                    <propertyInstance
+                      Id="8cde870d-18f3-4e39-8733-bc2bf6d9000d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1b66315c-83ee-4b1d-8efb-0dc47361d9a7">
+                    <propertyInstance
+                      Id="fb250c4b-7fb7-4370-9841-b5c28dd0bc91"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="164c35d7-9205-44ae-a428-1c789ae18ea2">
+                    <propertyInstance
+                      Id="b7e2d044-bcce-40fe-898e-9ee8d1408b35"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7faf4e11-fbb5-4a93-9e75-1e9facecb054">
+                    <propertyInstance
+                      Id="aba3f9bc-6212-4dec-bca9-c2352bbeb3eb"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="676b3678-b89a-4834-ba0d-cb6e7d7850e2">
+                    <propertyInstance
+                      Id="b440a192-85ae-431b-b726-7e384d3ccc72"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString
+                Id="3b9e2466-5d01-4604-bb56-c375482b9fc6"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="7910de67-db86-4511-a5e4-3c3b615a97d8"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="5b3d8665-d725-4fd3-a8ee-f141a1bf8a24"
+                LastKnownName="Single"
+                LastKnownLocation="Package1_2307.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="173d15f8-82de-4a92-99b1-de6ca33cd188"
+            name="state"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="f1d4eda3-a91b-4a2a-837e-1ad321415a03"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DCell Member%3Dstate"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7632ce2b-14f0-41e4-a1b4-dc7b65662d0c"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="75b15fc5-8a05-4e80-acdd-f2687492f2b1">
+                    <propertyInstance
+                      Id="6f27d1ba-9d72-4d20-bb35-869f2416a359"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8fc9713d-0dc3-4193-b5de-a9484fd3e4b8">
+                    <propertyInstance
+                      Id="a3acad3b-8621-4242-a0e8-f92670e2c235"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1ac021fe-2863-4aa3-b355-749c19071f32">
+                    <propertyInstance
+                      Id="8667d73f-4d33-4b73-817e-d37dc40ae78c"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cb44a6b4-0069-479a-9e6c-52a46e1e6538">
+                    <propertyInstance
+                      Id="365b7e7b-79dc-46d1-8c80-c8e0e8e62be6"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8b36fdfd-919b-4972-a397-f6708e12cbb3">
+                    <propertyInstance
+                      Id="025bdecd-3273-4708-9d1c-76bb9acb9fbd"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="11065a05-36b2-4782-ae2c-32d85ebee235"
+            name="cell"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isOrdered="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="c766be7a-51ef-44e1-8065-5b9f20c62940"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DCell Member%3Dcell"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="69934c98-66fd-426f-8318-16064bdca7bd"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="01ed5f85-c259-40cc-89b7-888c114eba71">
+                    <propertyInstance
+                      Id="6a627927-1caa-4758-b18d-e0f100bbd4e4"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="47989438-b30c-4cbb-9053-d6ae28830e64">
+                    <propertyInstance
+                      Id="587286af-d596-4f30-b1ba-aa425ca1006d"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ce895b6e-d3be-48fa-b6c2-88edab33c16d">
+                    <propertyInstance
+                      Id="f8709a2a-a483-4ccf-8476-eed76d86aa01"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4af73fd6-b173-4d92-aceb-d078ecd75339">
+                    <propertyInstance
+                      Id="b16fecf0-6ad0-4e44-8f46-a7f6e52151a6"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="276fca03-138e-4cfa-88d6-a953ecb2342c">
+                    <propertyInstance
+                      Id="8520faa8-5b39-4712-b611-cd52de200c02"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString
+                Id="8f9e013c-31bc-469a-b79a-0616f1a63ca3"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="706d765c-b579-462c-a3d8-2653f6be7319"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="5b3d8665-d725-4fd3-a8ee-f141a1bf8a24"
+                LastKnownName="Single"
+                LastKnownLocation="Package1_2307.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f528b207-8799-4c1f-aa46-39fb1e975a49"
+            name="prevColor"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isOrdered="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="bc7be72c-2bfe-43b3-b132-f70041d0e874"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DCell Member%3DprevColor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="28839862-9633-4569-932a-46ace8027cd7"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="722b1c9b-cc31-40cc-a65c-9308f58fa889">
+                    <propertyInstance
+                      Id="ed45d4b9-37d3-48d9-884a-bb61a0c64bd8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d3d130b6-02ab-46d5-9aa0-c18da6618fa0">
+                    <propertyInstance
+                      Id="b5ed651e-6178-4a1d-a911-f5a03f75c13d"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b8c9c941-3fc4-43ce-8ba5-26cfb3dabff1">
+                    <propertyInstance
+                      Id="38edaed8-347d-4b0d-b1ef-b26af210dfae"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="30e1a9b3-df8d-40e8-987d-598fc96c80df">
+                    <propertyInstance
+                      Id="c95f2b7e-7f82-4caa-80e7-5b583c403da8"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a2a1c994-e3fe-4935-89ef-377004481ac0">
+                    <propertyInstance
+                      Id="19bb3888-31d6-49b3-ba25-b9ef555d3f06"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString
+                Id="c8e4d13a-15c7-43bf-b206-2356efb35772"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="1d6c11d0-ab34-4e4c-a8b9-ffe9ad70ad92"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="5b3d8665-d725-4fd3-a8ee-f141a1bf8a24"
+                LastKnownName="Single"
+                LastKnownLocation="Package1_2307.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="45ad5d6b-1f8b-45ad-8733-b2438f6023ed"
+            name="prevState"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="463386b2-9b92-4c28-bd1b-1f347fbbb3ce"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DCell Member%3DprevState"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="3a172cc7-4d46-4208-80a0-15b0cf89268b"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fb4413dc-cb14-4529-ba1c-ee145f79d662">
+                    <propertyInstance
+                      Id="78691f3e-f4b7-4259-8ee0-cb648c642e05"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fa5fc8c2-cb15-473a-828a-2e94be24f483">
+                    <propertyInstance
+                      Id="ee842c03-709b-4277-9d1d-83c181dcd1b7"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6fcee1df-e12e-4bd3-ba66-428b28745db6">
+                    <propertyInstance
+                      Id="bda00197-555f-4e7d-8654-8fb39498d5e1"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ffe27e4-334a-4345-a0c1-3cae11e6d26b">
+                    <propertyInstance
+                      Id="cfa28b01-c4f7-45ff-9bf4-51db0855eecf"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3521725f-695f-4b49-839a-535d4e9bd1c4">
+                    <propertyInstance
+                      Id="9324a763-e8ba-46f6-b56c-db0a8a493d29"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="809ddfc9-e557-4e0a-885c-d84ad6c8f92f"
+            name="Cell"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="23a273bf-bb8a-4283-82bd-ea2a78603c63"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DCell Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d5d27fea-ef9f-4bff-b58f-e747eb4397bd"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6d83a31f-17ee-4b57-9372-2c5eefdd9570">
+                    <propertyInstance
+                      Id="335a13f6-4b44-4487-8144-6bb5c016ebbc"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="84804a79-fcfb-441d-8f89-79804e417131">
+                    <propertyInstance
+                      Id="96016566-5f93-4037-b835-1e608f8481bf"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="27d08848-4194-4cb9-9654-6d891be8b924">
+                    <propertyInstance
+                      Id="4721003a-f352-459b-ab8e-462f231a6d1b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="849979d4-c5bd-4caa-b9d6-80e2d90d812a">
+                    <propertyInstance
+                      Id="abad929f-1a04-46cd-8aac-12fe6a1d1f8d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e662d2ef-53c0-453d-8606-479f7faf470e">
+                    <propertyInstance
+                      Id="07c39d19-2022-43aa-9e9e-8afb8231fc3f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d18e8c85-d86a-4207-80bf-0384ecce18cf">
+                    <propertyInstance
+                      Id="4329393b-719f-4094-8632-ce6d36842cf2"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b09dee96-4ad1-4fd9-9f23-d08d44579ef8"
+        name="Assembly"
+        visibility="Package"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="3bf5dbb6-d6ab-42b0-a1b7-58d061710350"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DAssembly"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="a37ac211-9909-436f-bc7b-44088867daa2"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d5c5d599-fa44-422d-ba4e-25a140170794">
+                <propertyInstance
+                  Id="44c16b86-c34a-40f4-adc4-a903b80ded60"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4deb303b-6c27-4e6b-bd4b-2702962d2382">
+                <propertyInstance
+                  Id="0a1a5ed2-ebf7-4d09-8762-b6179d20a365"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="df83d3ae-fe45-4d52-84ff-38e14467e9a3">
+                <propertyInstance
+                  Id="946cf6c2-a9a8-49e5-9ace-5d26135d3fde"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7004aa95-ff0a-4113-8cec-56ba28937152">
+                <propertyInstance
+                  Id="eec2c6ed-1549-4420-98d1-e81935709f4d"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f613a82c-f2da-4052-92f0-53bb8eff8f03">
+                <propertyInstance
+                  Id="a1b814eb-8867-44c5-b525-cfd0eba9a1e6"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="98bf03cb-d44b-48b4-b5c6-ed83acfc89ef"
+            isDerived="false"
+            sourceEndRoleName="Assembly"
+            targetEndRoleName="Cell"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="4e438bc6-2b1f-4917-854c-660132439ba1"
+              LastKnownName="Cell"
+              LastKnownLocation="Package11_2307.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a6b2df53-1943-4f7b-b619-d7db92ef745d"
+                  name="Assembly"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8f649557-cb28-4ee9-9d46-287ce8f42deb"
+                  name="Cell"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation
+            Id="b9ca3800-a1fc-4e67-b31d-569b1f411357"
+            name="assemblyCell"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="5aea6766-6d8d-4b0b-baf6-f8c7b568a5c0"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DAssembly Member%3D(Name%3DassemblyCell OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="00051760-7425-4482-b26c-9ce2c4d0a0fa"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="51cdc51b-9a35-4f89-be18-e74734069323">
+                    <propertyInstance
+                      Id="e4b4bb97-1751-4fcc-88c7-86be8bd5ae0c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c86f3ca7-8b0e-4168-80fd-f55718316a28">
+                    <propertyInstance
+                      Id="5ec46f1d-40fc-436c-8e39-b4be6152ffdc"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0ed9bc87-735a-4c2f-a4d7-e9c451172952">
+                    <propertyInstance
+                      Id="01386c40-efe6-4bf4-891d-b6a5dc5507ff"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3609d786-deb5-446d-91b9-41c37c8089dc">
+                    <propertyInstance
+                      Id="cd18d951-ce65-45f0-965f-bce3c058dc76"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="85487d79-4a8c-4094-95e3-ede198859517">
+                    <propertyInstance
+                      Id="fbd4bd6e-d05c-4e8e-9921-2adcdf1b3b5c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f9f87fc7-65ee-4936-99d8-dbd6bbe99189">
+                    <propertyInstance
+                      Id="024bffff-ff67-4147-8de7-4a48ea076912"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2f0c79c5-e6da-4391-915a-31c76142282b"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="4e438bc6-2b1f-4917-854c-660132439ba1"
+                      LastKnownName="Cell"
+                      LastKnownLocation="Package11_2307.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="94dcb379-631e-4167-9332-aeba54a220e6"
+                  name="X"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="aeec9790-9c0e-484d-8bda-5319ac47711b"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DAssembly Member%3D(Name%3DassemblyCell OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DX"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8e729a79-f12b-4eb1-894e-1228ba8aea26"
+                  name="Y"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f851cab9-a890-4763-b108-f5b9abfe1607"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DAssembly Member%3D(Name%3DassemblyCell OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DY"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6e282d29-8170-448d-b0e5-f191b4d80db5"
+                  name="Z"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="d0dd262d-414f-4241-bb5b-be1b5b54aec2"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DAssembly Member%3D(Name%3DassemblyCell OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DZ"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="932dedb1-91b8-4d48-b69c-2bc5edc303f3"
+                  name="correction"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="453ddd42-4c3f-4f1f-a6cc-8caa38369534"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DAssembly Member%3D(Name%3DassemblyCell OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dcorrection"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a28dce7f-04bf-47d5-9a4a-5b2c3cd2a563"
+                  name="length"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="669ebd18-7185-448e-afa0-02be61315cde"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DAssembly Member%3D(Name%3DassemblyCell OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dlength"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="5b3d8665-d725-4fd3-a8ee-f141a1bf8a24"
+                      LastKnownName="Single"
+                      LastKnownLocation="Package1_2307.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3d761e79-0dd4-41e4-b4c2-c2822820fa4b"
+                  name="count"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="0af41c10-7cf6-4a4b-9096-9403fcfea496"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DAssembly Member%3D(Name%3DassemblyCell OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dcount"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ec1035e3-0ba3-40de-ae14-b2533a05e46c"
+            name="Assembly"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="2b7b55bb-13a1-4ccf-9d33-cd1292a3a3ee"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DAssembly Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6fde9f84-17d8-4dc6-8a25-7c538f4ad820"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7ecefcd8-5002-4713-bbd1-908aa2fbe68a">
+                    <propertyInstance
+                      Id="f93c24d5-5320-49c5-85a4-7a7ad85fd832"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b73eaad9-a912-4213-b34a-3024950b1564">
+                    <propertyInstance
+                      Id="ba8556cd-548e-4de7-889a-53c9bb64fbbf"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f618e7d3-c6df-4b28-bced-b73969f99f60">
+                    <propertyInstance
+                      Id="12dfa03f-6390-4bd5-ac0c-0a4f95873945"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b55b926f-e844-4965-b212-827214573fc9">
+                    <propertyInstance
+                      Id="e15590c8-7e7e-4f2f-bb1e-2918e24f47f6"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="12661605-68e7-4294-b354-537cefcaf42c">
+                    <propertyInstance
+                      Id="bbe0ce14-b781-4960-b836-378033cb639c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8ab860a2-c1d4-4aa6-ab6b-ead3f519deb1">
+                    <propertyInstance
+                      Id="1201c526-1475-4d1b-a5b2-568fb52c783f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6a7df7da-24a5-4ea5-a5c3-ed431a9d7bb6"
+        name="ColourSetter"
+        visibility="Package"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="a8470bbc-90df-4e01-a04b-b6438bbb126a"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DColourSetter"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="66d32564-8882-4f6f-b2c9-5d437b2481ef"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="93b76f40-6003-43b0-ae9b-8f18596085f7">
+                <propertyInstance
+                  Id="119c9966-892c-4c27-88bb-ed8de7c5d77b"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="42fce318-46ea-4f68-a07c-a230179111e6">
+                <propertyInstance
+                  Id="2885948d-97c7-44ac-95a8-c7d0092a3342"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="90da637f-e92f-4caa-a894-4936c4dcb811">
+                <propertyInstance
+                  Id="9cf8953d-6021-4600-a512-8dc1e30f78c4"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="367df729-8659-4aff-9567-cbb54ce61b1b">
+                <propertyInstance
+                  Id="e448bc9e-0101-4864-b024-60d854589345"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bba7d265-367a-44b4-994a-ed4744f2cb2f">
+                <propertyInstance
+                  Id="41f89a21-5f4d-49a5-93c3-025066b8cf96"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="8afc1e70-aaad-427e-ac87-0ae4aa68f1c7"
+            isDerived="false"
+            sourceEndRoleName="ColourSetter"
+            targetEndRoleName="Cell"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="4e438bc6-2b1f-4917-854c-660132439ba1"
+              LastKnownName="Cell"
+              LastKnownLocation="Package11_2307.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cc710590-57cc-486d-a20d-475ce20e3a88"
+                  name="ColourSetter"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6b54de8d-0ce9-4f75-ba54-0e3260499d0b"
+                  name="Cell"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation
+            Id="9abd8819-7ec4-4734-915a-4fdbda1d9681"
+            name="getColour"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="7078a451-5573-439d-96cd-cd793a1698d3"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DColourSetter Member%3D(Name%3DgetColour OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6840aeb0-578f-4473-a8d8-845e89c5d9b0"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="483b5307-8b2e-4de1-bb72-30cbffeeeea8">
+                    <propertyInstance
+                      Id="f2aedd9f-661d-48ba-b8fd-d8f3e1a5ee51"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f1aa6663-c166-425c-8579-2b8d3f54fc8b">
+                    <propertyInstance
+                      Id="41c4a705-d23e-4bf3-9e37-8ca132388a02"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="79421abf-5e59-4393-8685-3d5a40ce49b7">
+                    <propertyInstance
+                      Id="aa4152c3-0027-406f-a5c8-22e501c99df8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="67ca7898-3f9d-45fe-9b7f-b793493f6ad2">
+                    <propertyInstance
+                      Id="46d0c8df-a7fd-48db-8dae-59eff70d828e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="98b81c94-0cc7-42a2-bdd1-b64fbd8d818d">
+                    <propertyInstance
+                      Id="8edcce8b-c2b5-40a6-b05e-77b57ae2100e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e04fac2c-0132-4f0c-a505-a7df49d720bd">
+                    <propertyInstance
+                      Id="cd3ba1a2-9114-49df-b264-8d9009c8fc16"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b44fc075-82ae-4bc8-854b-85321aba037b"
+                  direction="Return"
+                  isOrdered="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="7869c14c-8b10-4571-8434-80be29798d7e"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="e6477b8e-1636-4556-9976-1c883fd321f6"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="5b3d8665-d725-4fd3-a8ee-f141a1bf8a24"
+                      LastKnownName="Single"
+                      LastKnownLocation="Package1_2307.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4cc33532-e5b3-49c9-a454-83c708e74d60"
+                  name="r"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ab7d5ec3-cedf-4c54-9e89-d84fa2e9df6d"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DColourSetter Member%3D(Name%3DgetColour OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dr"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f23d1633-3bf8-4f11-9d8f-61bb87fcebb0"
+                  name="g"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="e1d96e41-8af6-4c62-9f64-6f84559b8cf0"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DColourSetter Member%3D(Name%3DgetColour OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dg"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="96de9f5d-3973-4144-9212-6f3cddf30b42"
+                  name="b"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="c2b938e7-cd7b-45ea-b658-ed3d88b37f1e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DColourSetter Member%3D(Name%3DgetColour OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Db"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2b4dd140-d90c-4531-badc-4d48f58ac1ca"
+            name="getColour"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="6e825d2a-0001-434a-b8a2-68f8eb7c4b55"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DColourSetter Member%3D(Name%3DgetColour OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3D(Name%3DSingle ArrayRank%3D1 ParentType%3DSingle))])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2d667594-d9dd-4cc6-8d73-5ee1fdaac4ff"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5e6cf39f-b370-482d-ad3d-5c2e402e7869">
+                    <propertyInstance
+                      Id="2fc93587-96b1-4754-a5f5-2f29d499422e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66dc5156-9fa3-479a-8218-3bcdb07c9f9f">
+                    <propertyInstance
+                      Id="54cbe775-5cf0-49e8-ab7f-dc8bba67c576"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8461fb64-4122-4eeb-b7d0-43f0c27519f4">
+                    <propertyInstance
+                      Id="e2da9bc2-d46d-449d-97bc-98002ef20d64"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3fc67993-2c74-4e07-95e5-07711918bca1">
+                    <propertyInstance
+                      Id="165b4126-cc7c-4520-8208-d03be4e28177"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5aab9815-8832-41df-8192-d1f925d25980">
+                    <propertyInstance
+                      Id="f586a3a3-e55d-4908-8699-4a7a739f9de2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="952d8889-0c12-4a57-bd7b-159607143a93">
+                    <propertyInstance
+                      Id="bcbffe8b-1cba-41b8-8bf8-c531a678e5e8"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e6062474-9d9c-401e-957d-a699f6b6c4e6"
+                  direction="Return"
+                  isOrdered="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="d6d3bce3-c62f-4609-98c1-162883000cc1"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="5c708ffe-83f4-4206-aac2-48d6b3f7d649"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="5b3d8665-d725-4fd3-a8ee-f141a1bf8a24"
+                      LastKnownName="Single"
+                      LastKnownLocation="Package1_2307.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5d23bf21-cb03-4cc1-ae60-f5ad5f3a1569"
+                  name="color"
+                  direction="In"
+                  isOrdered="true">
+                  <referencesInternal>
+                    <reference
+                      Id="9df2f9b6-9af7-49b8-8777-7e9a15c5bd74"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DColourSetter Member%3D(Name%3DgetColour OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3D(Name%3DSingle ArrayRank%3D1 ParentType%3DSingle))]) ParameterIdentifier%3Dcolor"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <lowerValueInternal>
+                    <literalString
+                      Id="51ff8f6d-5fea-4e2a-a87e-f6dfc8e1b468"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="4ebb557a-5ea0-41b5-aa8f-322764b55ab5"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="5b3d8665-d725-4fd3-a8ee-f141a1bf8a24"
+                      LastKnownName="Single"
+                      LastKnownLocation="Package1_2307.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="af094713-b005-43f5-85e0-907525353ccc"
+            name="ColourSetter"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="c396b61d-c9ba-4a48-9087-86ac0728db29"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FPotr%2FSource%2FRepos%2Feng_%2FEng_OpenTK%2FEng_OpenTK%2Fbin%2FDebug%2FEng_OpenTK.exe Namespace%3DEng_OpenTK.Cube Type%3DColourSetter Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="451c4ff1-8f07-46bd-a356-a783b62bb508"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1d52cfa2-4cfe-4d6e-9989-af232e0e093f">
+                    <propertyInstance
+                      Id="d18928e4-b0e7-4a77-83b1-ae20954a0d44"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="594ae734-a1ba-4686-8fb2-cd2b980fc23a">
+                    <propertyInstance
+                      Id="80e7fbdc-0bc1-4f2a-9353-38f5049a65c0"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="599d8eff-58d3-4a34-a26a-933a36f4d310">
+                    <propertyInstance
+                      Id="01ec88a7-a1ae-4400-8138-2db6d9f151bc"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c2ad570d-ec44-4d3f-ab91-694b0363edaf">
+                    <propertyInstance
+                      Id="30ef919d-e600-48e4-91da-c2d2d2af041d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8bfdf31f-c4e8-4515-86a6-31296f570c4b">
+                    <propertyInstance
+                      Id="9372f935-41f9-4c46-8a53-8112233b8037"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="326f1900-858a-473c-bfcd-a5429e838394">
+                    <propertyInstance
+                      Id="fef0a86e-cb85-43d8-8525-793d09ecd04e"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="f8ffb4d0-a125-442a-ab35-7dc14444ee1a"
+        LastKnownName="Shapes"
+        LastKnownLocation="Package7_2307.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

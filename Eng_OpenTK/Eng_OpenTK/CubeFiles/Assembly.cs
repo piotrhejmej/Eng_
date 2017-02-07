@@ -9,19 +9,19 @@ namespace Eng_OpenTK.Cube
 {
     class Assembly
     {
-        public Cube buildCube(int X, int Y, int Z, int correction, float length, int count)
+        public Cell assemblyCell(int X, int Y, int Z, int correction, float length, int count)
         {
-            Cube cube = new Cube();
-            cube.x = X;
-            cube.y = Y;
-            cube.z = Z;
+            Cell cell = new Cell();
+            cell.x = X;
+            cell.y = Y;
+            cell.z = Z;
 
             float x = length * (X - correction);
             float y = length * (Y - correction);
             float z = length * (Z - correction);
-            cube.cellColor = ColourSetter.getColour(0, 0, 0);
-            cube.state = 0;
-            cube.cell = new float[]
+            cell.cellColor = ColourSetter.getColour(0, 0, 0);
+            cell.state = 0;
+            cell.cell = new float[]
             {
                 x,              y,              z,
                 x,              y - length,     z,
@@ -33,7 +33,7 @@ namespace Eng_OpenTK.Cube
                 x - length,     y,              z - length,
             };
             
-            return cube;
+            return cell;
         }
 
 

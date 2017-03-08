@@ -13,7 +13,7 @@ namespace Eng_OpenTK.Shapes
         IShape currentShape;
         int cB, cG, cR;
 
-        public IShape getShape(int type, ref List<StateColorMemory> stateCollors, int x, int y, int z, int r,int baseAxis, int iteration)
+        public IShape getShape(int type, ref List<StateColorMemory> stateCollors, int x, int y, int z, int r, int baseAxis, int iteration, int hOrientation, int a, int h)
         {
             StateColorMemory tempColor = new StateColorMemory();
             Random rand = new Random();
@@ -33,6 +33,10 @@ namespace Eng_OpenTK.Shapes
             {
                 Sphere(r);
             }
+            if (type == 3)
+            {
+                Wedge(x, y, z, baseAxis, r, hOrientation, a, h);
+            }
 
             tempColor.state = iteration;
             tempColor.cellColor = currentShape.getColor();
@@ -41,6 +45,7 @@ namespace Eng_OpenTK.Shapes
             return currentShape;
         }
 
+       
         void Cuboid(int x, int y, int z)
         {
             Cuboid cuboid = new Cuboid();
@@ -77,6 +82,24 @@ namespace Eng_OpenTK.Shapes
             sphere.color = ColourSetter.getColour(cR, cG, cB);
 
             currentShape = sphere;
+        }
+
+        void Wedge(int x, int y, int z, int baseAxis, int r, int hOrientation, int a, int h)
+        {
+            Wedge wedge = new Wedge();
+            wedge.x = x;
+            wedge.y = y;
+            wedge.z = z;
+            wedge.r = r;
+            wedge.a = a;
+            wedge.h = h;
+            wedge.hOrientation = hOrientation;
+            wedge.orientation = baseAxis;
+
+            wedge.startX = wedge.startY = wedge.startZ = 0;
+            wedge.color = ColourSetter.getColour(cR, cG, cB);
+
+            currentShape = wedge;
         }
 
     }

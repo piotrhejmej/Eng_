@@ -50,6 +50,7 @@ namespace Eng_OpenTK
         float rotX = 0, rotY = 0, rotZ = 0;
         float x = 0, y = 0, z = -50;
 
+        Random rand = new Random();
         int templicz = 0;
         
         public MainWindow()
@@ -315,12 +316,12 @@ namespace Eng_OpenTK
             ShapeDefinition shapeDef = new ShapeDefinition();
             shapeDef.Show(this);
         }
-        public void defShape(int x, int y, int z, int whichShape, int baseAxis, int r)
+        public void defShape(int x, int y, int z, int whichShape, int baseAxis, int r, int hOrientation, int a, int h)
         {
             stateIterator--;
             DefShapes Definitor = new DefShapes();
 
-            shape = Definitor.getShape(whichShape, ref stateCollors, x, y, z, r, baseAxis, stateIterator);          
+            shape = Definitor.getShape(whichShape, ref stateCollors, x, y, z, r, baseAxis, stateIterator, hOrientation, a, h);          
             
             moveShape();
         }
@@ -432,47 +433,42 @@ namespace Eng_OpenTK
             clearStates();
             moveShape();
         }
-
-        private void button3_Click_1(object sender, EventArgs e)
+        public void randomShapeGenerate(double fillRate, int axis, List<shapeTypeAndRate> types)
         {
-                int ile = 100;
-                int prev = 0;
-                Random rand = new Random();
-            int baseAxis = 2;//rand.Next(3);
-                double percentageFillage = 0;
-                int volume = valContainer.getCount();
-          //  RandomShapeGenerator abd = new RandomShapeGenerator();
-          //  abd.Show();
+            int baseAxis = axis;
+            fillRate = fillRate * 0.01;
+            double percentageFillage = 0;
+            int volume = valContainer.getCount();
+            Console.WriteLine("{0}, {1}",fillRate, baseAxis);
+            int prev = 0;
+            int max = (int)Math.Pow(valContainer.getCount(), 1.0f / 3.0f);
+            double[] typeFillage = new double[4] { 0,0,0,0 };
+            int typesCount = types.Count;
 
+            while (percentageFillage < (fillRate * volume))
+            {
+                if (axis == -1)
+                    baseAxis = rand.Next(3);
 
-            for (int i = 0; percentageFillage < (0.01 * volume); i++)
-                {
+                int type = types[rand.Next(typesCount)].Type;
 
-                int type = 0; // rand.Next(3);
-                int max = (int)Math.Pow(valContainer.getCount(), 1.0f / 3.0f);
-
-                Thread.Sleep(10);
                 int x = rand.Next(max - (int)0.05 * max) + (int)0.05 * max;
-                Thread.Sleep(10);
-                int y = rand.Next(max-(int)0.05*max)+ (int)0.05 * max;
-                Thread.Sleep(10);
+                int y = rand.Next(max - (int)0.05 * max) + (int)0.05 * max;
                 int z = rand.Next(max - (int)0.05 * max) + (int)0.05 * max;
-                Thread.Sleep(10);
-                int r = rand.Next(max/10);
-                Thread.Sleep(10);
-                int movX = rand.Next(max*2)-max;
-                Thread.Sleep(10);
+                int r = rand.Next(max / 10);
+                int hOrientation = rand.Next(3);
+                int a = rand.Next(max - (int)0.08 * max);
+                int h = rand.Next(max - (int)0.08 * max);
+                int movX = rand.Next(max * 2) - max;
                 int movY = rand.Next(max * 2) - max;
-                Thread.Sleep(10);
                 int movZ = rand.Next(max * 2) - max;
 
                 if (prev == x + y)
                 {
-                    i--;
                     continue;
                 }
                 prev = x + y;
-                
+
                 if (type == 0)
                 {
                     x = (int)(x * 0.15);
@@ -480,6 +476,7 @@ namespace Eng_OpenTK
                     z = (int)(z * 0.15);
 
                     percentageFillage += x * y * z;
+                    typeFillage[0] += x * y * z;
                 }
 
 
@@ -489,19 +486,22 @@ namespace Eng_OpenTK
                     {
                         x = 2 * r;
                         y = 2 * r;
-                        percentageFillage += 3.14* (r * r) * z;
+                        percentageFillage += 3.14 * (r * r) * z;
+                        typeFillage[1] += 3.14 * (r * r) * z;
                     }
-                    if (baseAxis  == 1)
+                    if (baseAxis == 1)
                     {
                         z = 2 * r;
                         x = 2 * r;
                         percentageFillage += 3.14 * (r * r) * y;
+                        typeFillage[1] += 3.14 * (r * r) * y;
                     }
                     if (baseAxis == 2)
                     {
                         z = 2 * r;
                         y = 2 * r;
                         percentageFillage += 3.14 * (r * r) * x;
+                        typeFillage[1] += 3.14 * (r * r) * x;
                     }
                 }
                 if (type == 2)
@@ -510,21 +510,60 @@ namespace Eng_OpenTK
                     y = 2 * r;
                     z = 2 * r;
                     percentageFillage += (4 / 3) * 3.14 * (r * r * r);
+                    typeFillage[2] += (4 / 3) * 3.14 * (r * r * r);
+                }
+                if (type == 3)
+                {
+                    if (baseAxis == 0)
+                    {
+                        x = 2 * r;
+                        y = 2 * r;
+                        z = (int)(z * 0.15);
+                        percentageFillage += ((a * h) / 2) * z;
+                        typeFillage[3] += ((a * h) / 2) * z;
+                    }
+                    if (baseAxis == 1)
+                    {
+                        z = 2 * r;
+                        x = 2 * r;
+                        y = (int)(z * 0.15);
+                        percentageFillage += ((a * h) / 2) * y;
+                        typeFillage[3] += ((a * h) / 2) * y;
+                    }
+                    if (baseAxis == 2)
+                    {
+                        z = 2 * r;
+                        y = 2 * r;
+                        x = (int)(z * 0.15);
+                        percentageFillage += ((a * h) / 2) * x;
+                        typeFillage[3] += ((a * h) / 2) * x;
+                    }
                 }
 
-                Console.WriteLine("{0}, {1}, {2}, {3}, {4}, {5}, {6} mov: {7}, {8}, {9}", x, y, z, r, type, baseAxis, max, movX, movY, movZ);
-                
-                defShape(x, y, z, type, baseAxis, r);
+                Console.WriteLine("{0}, {1}, {2}, {3}, {4}, {5}, {6} mov: {7}, {8}, {9}, percentage: {10}", type, x, y, z, r, baseAxis, max, movX, movY, movZ, percentageFillage);
+
+                defShape(x, y, z, type, baseAxis, r, hOrientation, a, h);
                 shape.setPos(movX, movY, movZ);
                 clearStates();
                 moveShape();
             }
-            
+
+
+        }
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+                int ile = 100;
+                int prev = 0;
+                Random rand = new Random();
+                int baseAxis = 2;//rand.Next(3);
+                double percentageFillage = 0;
+                int volume = valContainer.getCount();
+                RandomShapeGenerator abd = new RandomShapeGenerator();
+                abd.Show(this);
         }
 
         private void button12_Click_1(object sender, EventArgs e)
         {
-            Random rand = new Random();
             
             int max = (int)Math.Pow(valContainer.getCount(), 1.0f / 3.0f);
             int grainState = 1;
@@ -536,9 +575,7 @@ namespace Eng_OpenTK
                 cR = rand.Next(100);
 
                 int x = rand.Next(max);
-                Thread.Sleep(10);
                 int y = rand.Next(max);
-                Thread.Sleep(10);
                 int z = rand.Next(max);
 
                 int iterator = (x * max * max + y * max + z);

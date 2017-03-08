@@ -12,4 +12,10 @@ namespace Eng_OpenTK.Cube
         public float[] cell, cellColor, prevColor;
         public int state, prevState;
     }
+
+    public class shapeTypeAndRate
+    {
+        public int Type;
+        public double fillRate;
+    }
 }
